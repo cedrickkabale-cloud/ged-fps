@@ -1,0 +1,19 @@
+{
+  "name": "ged-fps",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "bash ./scripts/dev-safe.sh",
+    "dev:raw": "concurrently \"npm run dev --prefix backend\" \"npm run dev --prefix frontend\"",
+    "build": "npm run build --prefix backend && npm run build --prefix frontend",
+    "lint": "npm run lint --prefix backend && npm run lint --prefix frontend",
+    "lint:fix": "npm run lint:fix --prefix backend && npm run lint:fix --prefix frontend",
+    "lint:strict": "npm run lint:strict --prefix backend && npm run lint:strict --prefix frontend",
+    "start": "concurrently \"npm run start --prefix backend\" \"npm run start --prefix frontend\"",
+    "deploy:hostinger": "bash ./scripts/hostinger-deploy.sh",
+    "start:pm2": "pm2 startOrReload ecosystem.config.cjs --env production"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.1"
+  }
+}
