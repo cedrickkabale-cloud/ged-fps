@@ -120,8 +120,8 @@ export default function EtiquetteCourrierPage() {
   const isExtreme = printProfile === 'extreme';
   const borderMain = '0.4mm solid #000';
   const dividerBorder = '0.3mm solid #000';
-  const rightColW = '18.8mm';
-  const qrSize = '17.9mm';
+  const rightColW = '20.6mm';
+  const qrSize = '19.7mm';
 
   // ── Étiquette partagée écran/impression ──────────────────────
   const LabelContent = () => (
@@ -151,15 +151,15 @@ export default function EtiquetteCourrierPage() {
           display: 'grid',
           gridTemplateRows: 'auto auto auto auto 0.2mm 1fr',
           alignItems: 'stretch',
-          padding: '0.72mm 0.82mm 0.68mm 0.92mm',
+          padding: '0.68mm 0.72mm 0.62mm 0.78mm',
           boxSizing: 'border-box',
-          rowGap: '0.16mm',
+          rowGap: '0.12mm',
         }}
       >
         {/* FPS / AR — mis en valeur */}
         <p style={{
           margin: 0,
-          fontSize: '6.45pt',
+          fontSize: '6.35pt',
           fontWeight: 900,
           lineHeight: 1,
           letterSpacing: '0.02em',
@@ -172,7 +172,7 @@ export default function EtiquetteCourrierPage() {
         {/* Numéro */}
         <p style={{
           margin: 0,
-          fontSize: '5.65pt',
+          fontSize: '5.55pt',
           fontWeight: 800,
           lineHeight: 1,
           whiteSpace: 'nowrap',
@@ -182,13 +182,13 @@ export default function EtiquetteCourrierPage() {
         </p>
 
         {/* Date structurée */}
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'stretch', justifyContent: 'center', gap: '0.06mm' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'stretch', justifyContent: 'center', gap: '0.04mm' }}>
           <p style={{ margin: 0, fontSize: '2.9pt', fontWeight: 700, lineHeight: 1, color: '#333', textAlign: 'left' }}>
             Reçu le&nbsp;:
           </p>
           <p style={{
             margin: 0,
-            fontSize: '3.45pt',
+            fontSize: '3.35pt',
             fontWeight: 700,
             lineHeight: 1,
             textAlign: 'left',
@@ -198,7 +198,7 @@ export default function EtiquetteCourrierPage() {
           </p>
           <p style={{
             margin: 0,
-            fontSize: '4.2pt',
+            fontSize: '4.1pt',
             fontWeight: 700,
             lineHeight: 1.05,
             textAlign: 'left',
@@ -208,7 +208,7 @@ export default function EtiquetteCourrierPage() {
           </p>
           <p style={{
             margin: 0,
-            fontSize: '4.15pt',
+            fontSize: '4pt',
             fontWeight: 700,
             lineHeight: 1,
             textAlign: 'left',
@@ -221,7 +221,7 @@ export default function EtiquetteCourrierPage() {
         {/* Annexes */}
         <p style={{
           margin: 0,
-          fontSize: '4.45pt',
+          fontSize: '4.25pt',
           fontWeight: 800,
           lineHeight: 1,
           textAlign: 'left',
@@ -237,12 +237,12 @@ export default function EtiquetteCourrierPage() {
         <div style={{ flex: 1, minHeight: 0, display: 'flex', alignItems: 'center' }}>
           <p style={{
             margin: 0,
-            fontSize: '3.05pt',
+            fontSize: '3.2pt',
             fontWeight: 700,
-            lineHeight: 1.18,
+            lineHeight: 1.2,
             textAlign: 'justify',
             textJustify: 'inter-word',
-            textAlignLast: 'left',
+            textAlignLast: 'justify',
             wordBreak: 'break-word',
             hyphens: 'auto',
             color: '#222',
@@ -266,7 +266,7 @@ export default function EtiquetteCourrierPage() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          padding: '0.35mm',
+          padding: '0.3mm',
         }}
       >
         {qrDataUrl ? (
