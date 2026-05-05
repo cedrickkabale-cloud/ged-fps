@@ -112,6 +112,9 @@ export default function EtiquetteCourrierPage() {
   const anneeLabel = courrier.date_reception
     ? format(new Date(courrier.date_reception), 'yyyy', { locale: fr })
     : '—';
+  const dateReceptionLabel = courrier.date_reception
+    ? `Reçu ${jourSemaineCapLabel}, le ${jourLabel} ${moisLabel} ${anneeLabel}`
+    : 'Reçu —';
   const heureLabel = courrier.created_at
     ? format(new Date(courrier.created_at), 'HH:mm', { locale: fr })
     : '—';
@@ -149,11 +152,11 @@ export default function EtiquetteCourrierPage() {
           minWidth: 0,
           height: '100%',
           display: 'grid',
-          gridTemplateRows: 'auto auto auto auto 0.2mm 1fr',
+          gridTemplateRows: 'auto auto auto auto auto 0.2mm 1fr',
           alignItems: 'stretch',
-          padding: '2.45mm 0.72mm 0.05mm 0.78mm',
+          padding: '2.95mm 0.72mm 0.05mm 0.78mm',
           boxSizing: 'border-box',
-          rowGap: '0.1mm',
+          rowGap: '0',
         }}
       >
         {/* FPS / AR — mis en valeur */}
@@ -171,7 +174,7 @@ export default function EtiquetteCourrierPage() {
 
         {/* Numéro */}
         <p style={{
-          margin: 0,
+          margin: '0.12mm 0 0 0',
           fontSize: '5.55pt',
           fontWeight: 800,
           lineHeight: 1,
@@ -181,47 +184,34 @@ export default function EtiquetteCourrierPage() {
           N°{numeroLabel}
         </p>
 
-        {/* Date structurée */}
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'stretch', justifyContent: 'center', gap: '0.04mm' }}>
-          <p style={{ margin: 0, fontSize: '2.9pt', fontWeight: 700, lineHeight: 1, color: '#333', textAlign: 'left' }}>
-            Reçu le&nbsp;:
-          </p>
-          <p style={{
-            margin: 0,
-            fontSize: '3.35pt',
-            fontWeight: 700,
-            lineHeight: 1,
-            textAlign: 'left',
-            whiteSpace: 'nowrap',
-          }}>
-            {jourSemaineCapLabel}
-          </p>
-          <p style={{
-            margin: 0,
-            fontSize: '4.1pt',
-            fontWeight: 700,
-            lineHeight: 1.05,
-            textAlign: 'left',
-            whiteSpace: 'nowrap',
-          }}>
-            {jourLabel} {moisLabel} {anneeLabel}
-          </p>
-          <p style={{
-            margin: 0,
-            fontSize: '4pt',
-            fontWeight: 700,
-            lineHeight: 1,
-            textAlign: 'left',
-            whiteSpace: 'nowrap',
-          }}>
-            à {heureLabel}
-          </p>
-        </div>
+        {/* Ligne 3 : Réception (jour + date) */}
+        <p style={{
+          margin: '0.14mm 0 0 0',
+          fontSize: '3.7pt',
+          fontWeight: 700,
+          lineHeight: 1,
+          textAlign: 'left',
+          whiteSpace: 'nowrap',
+        }}>
+          {dateReceptionLabel}
+        </p>
+
+        {/* Ligne 4 : Heure */}
+        <p style={{
+          margin: '0.06mm 0 0 0',
+          fontSize: '3.9pt',
+          fontWeight: 700,
+          lineHeight: 1,
+          textAlign: 'left',
+          whiteSpace: 'nowrap',
+        }}>
+          Heure&nbsp;: {heureLabel}
+        </p>
 
         {/* Annexes */}
         <p style={{
-          margin: 0,
-          fontSize: '4.25pt',
+          margin: '0.1mm 0 0 0',
+          fontSize: '4.2pt',
           fontWeight: 800,
           lineHeight: 1,
           textAlign: 'left',
@@ -234,15 +224,15 @@ export default function EtiquetteCourrierPage() {
         <div style={{ height: '0.2mm', background: '#b8b8b8', width: '100%' }} />
 
         {/* Slogan — justifié */}
-        <div style={{ flex: 1, minHeight: 0, display: 'flex', alignItems: 'center' }}>
+        <div style={{ flex: 1, minHeight: 0, display: 'flex', alignItems: 'flex-start' }}>
           <p style={{
-            margin: 0,
-            fontSize: '3.2pt',
+            margin: '0.05mm 0 0 0',
+            fontSize: '3.1pt',
             fontWeight: 700,
-            lineHeight: 1.2,
+            lineHeight: 1.16,
             textAlign: 'justify',
             textJustify: 'inter-word',
-            textAlignLast: 'justify',
+            textAlignLast: 'left',
             wordBreak: 'break-word',
             hyphens: 'auto',
             color: '#222',
