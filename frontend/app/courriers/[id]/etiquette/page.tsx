@@ -276,7 +276,7 @@ export default function EtiquetteCourrierPage() {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              border: '0.3mm dashed #ccc',
+              border: '0.3mm solid #ccc',
             }}
           >
             <span style={{ fontSize: '3pt', color: '#999' }}>QR…</span>
