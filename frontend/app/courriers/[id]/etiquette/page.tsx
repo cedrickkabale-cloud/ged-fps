@@ -151,9 +151,9 @@ export default function EtiquetteCourrierPage() {
           display: 'grid',
           gridTemplateRows: 'auto auto auto auto 0.2mm 1fr',
           alignItems: 'stretch',
-          padding: '0.68mm 0.72mm 0.62mm 0.78mm',
+          padding: '1.45mm 0.72mm 0.2mm 0.78mm',
           boxSizing: 'border-box',
-          rowGap: '0.12mm',
+          rowGap: '0.1mm',
         }}
       >
         {/* FPS / AR — mis en valeur */}
