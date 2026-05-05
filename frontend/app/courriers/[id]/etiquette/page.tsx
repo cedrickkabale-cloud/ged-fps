@@ -183,7 +183,7 @@ export default function EtiquetteCourrierPage() {
               wordBreak: 'break-all',
               textAlign: 'center',
             }}>
-              N°&nbsp;{numeroLabel}
+              {numeroLabel}
             </p>
           </div>
         </div>
