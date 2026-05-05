@@ -105,15 +105,13 @@ export default function EtiquetteCourrierPage() {
   const annexesLabel = typeof courrier.nombre_annexes === 'number' ? courrier.nombre_annexes : 0;
   const isThermal = printProfile === 'thermal';
   const isExtreme = printProfile === 'extreme';
-  const borderMain = isExtreme ? '0.44mm dashed #000' : isThermal ? '0.38mm dashed #000' : '0.3mm dashed #000';
-  const numberBorder = isExtreme ? '0.28mm dashed #000' : isThermal ? '0.24mm dashed #000' : '0.2mm dashed #000';
+  const borderMain = isExtreme ? '0.44mm solid #000' : isThermal ? '0.38mm solid #000' : '0.3mm solid #000';
+  const numberBorder = isExtreme ? '0.28mm solid #000' : isThermal ? '0.24mm solid #000' : '0.2mm solid #000';
   const rightColumnWidth = isExtreme ? '17.1mm' : isThermal ? '16.8mm' : '16.4mm';
   const qrSize = isExtreme ? '15.2mm' : isThermal ? '14.9mm' : '14.5mm';
   const outerHorizontalInset = isExtreme ? '0.62mm' : isThermal ? '0.56mm' : '0.5mm';
   const leftSafeInset = isExtreme ? '1.02mm' : isThermal ? '0.92mm' : '0.82mm';
   const centerShiftToQr = isExtreme ? '0.28mm' : isThermal ? '0.22mm' : '0.18mm';
-  const logoSize = isExtreme ? '7.6mm' : isThermal ? '7.3mm' : '7mm';
-  const logoTextGap = isExtreme ? '0.12mm' : isThermal ? '0.1mm' : '0.08mm';
   const verticalSafeInset = isExtreme ? '0.95mm' : isThermal ? '0.85mm' : '0.75mm';
   const contentHeight = isExtreme ? '22.7mm' : isThermal ? '22.9mm' : '23.1mm';
   const topTitleInset = isExtreme ? '0.55mm' : isThermal ? '0.48mm' : '0.4mm';
@@ -218,7 +216,7 @@ export default function EtiquetteCourrierPage() {
           </p>
         </div>
 
-        {/* Zone 4 – Slogan (flex 1.4, séparateur en haut) */}
+        {/* Zone 4 – Slogan (flex 1.4) */}
         <div style={{
           flex: 1.4,
           display: 'flex',
@@ -226,7 +224,6 @@ export default function EtiquetteCourrierPage() {
           justifyContent: 'center',
           overflow: 'hidden',
           paddingLeft: centerShiftToQr,
-          borderTop: isExtreme ? '0.28mm dotted #000' : isThermal ? '0.22mm dotted #000' : '0.18mm dotted #000',
         }}>
           <p style={{
             margin: 0,
@@ -241,35 +238,7 @@ export default function EtiquetteCourrierPage() {
           </p>
         </div>
 
-        {/* Zone 5 – Logo + nom (flex 2, séparateur en haut) */}
-        <div style={{
-          flex: 2,
-          display: 'flex',
-          flexDirection: 'row',
-          alignItems: 'center',
-          justifyContent: 'flex-start',
-          gap: logoTextGap,
-          overflow: 'hidden',
-          paddingLeft: centerShiftToQr,
-          borderTop: isExtreme ? '0.28mm dashed #000' : isThermal ? '0.22mm dashed #000' : '0.18mm dashed #000',
-        }}>
-          <img
-            src="/logo-fps.png"
-            alt="Logo FPS"
-            style={{ width: logoSize, height: logoSize, objectFit: 'contain', flexShrink: 0, display: 'block', filter: 'grayscale(1) contrast(1.4)' }}
-          />
-          <p style={{
-            margin: 0,
-            fontSize: '2.7pt',
-            fontWeight: isExtreme ? 900 : isThermal ? 820 : 720,
-            lineHeight: 1.12,
-            textAlign: 'left',
-            wordBreak: 'break-word',
-            overflow: 'hidden',
-          }}>
-            Fonds de Promotion de la Santé
-          </p>
-        </div>
+
       </div>
 
       {/* ── Colonne droite : QR Code ───────────────────────── */}
