@@ -344,7 +344,7 @@ export default function EtiquetteCourrierPage() {
           }
 
           .label-print.label-print-thermal {
-            filter: contrast(1.28) brightness(0.84) saturate(0);
+            filter: contrast(1.38) brightness(0.78) saturate(0);
           }
 
           .label-print.label-print-extreme {
