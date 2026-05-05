@@ -151,7 +151,7 @@ export default function EtiquetteCourrierPage() {
           display: 'grid',
           gridTemplateRows: 'auto auto auto auto 0.2mm 1fr',
           alignItems: 'stretch',
-          padding: '1.45mm 0.72mm 0.2mm 0.78mm',
+          padding: '2.45mm 0.72mm 0.05mm 0.78mm',
           boxSizing: 'border-box',
           rowGap: '0.1mm',
         }}
