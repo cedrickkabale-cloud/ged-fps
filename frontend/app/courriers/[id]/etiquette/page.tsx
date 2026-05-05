@@ -162,7 +162,7 @@ export default function EtiquetteCourrierPage() {
         {/* FPS / AR — mis en valeur */}
         <p style={{
           margin: 0,
-          fontSize: '6.35pt',
+          fontSize: '7.05pt',
           fontWeight: 900,
           lineHeight: 1,
           letterSpacing: '0.02em',
@@ -175,7 +175,7 @@ export default function EtiquetteCourrierPage() {
         {/* Numéro */}
         <p style={{
           margin: '0.12mm 0 0 0',
-          fontSize: '5.55pt',
+          fontSize: '6.2pt',
           fontWeight: 800,
           lineHeight: 1,
           whiteSpace: 'nowrap',
