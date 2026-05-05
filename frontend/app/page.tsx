@@ -185,7 +185,7 @@ export default function Home() {
       <div className="pointer-events-none absolute inset-0 opacity-[0.08] [background-image:linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] [background-size:36px_36px]" />
 
       <div className="relative mx-auto w-full max-w-6xl space-y-6 md:space-y-8">
-        <section className="card relative overflow-hidden rounded-[30px] border border-[#d9e6f6] bg-[linear-gradient(135deg,#ffffff_0%,#f6fbff_42%,#fff7e8_100%)] p-4 md:p-5 shadow-[0_18px_36px_rgba(15,23,42,0.11)] fade-in-up before:pointer-events-none before:absolute before:-left-10 before:top-0 before:h-36 before:w-36 before:rounded-full before:bg-[radial-gradient(circle,_rgba(25,118,210,0.14)_0%,_transparent_70%)] before:blur-2xl after:pointer-events-none after:absolute after:-right-12 after:bottom-0 after:h-40 after:w-40 after:rounded-full after:bg-[radial-gradient(circle,_rgba(255,204,51,0.16)_0%,_transparent_72%)] after:blur-2xl">
+        <section className="card relative overflow-hidden rounded-[30px] border border-[#d9e6f6] bg-[linear-gradient(135deg,#ffffff_0%,#f6fbff_42%,#fff7e8_100%)] p-4 md:p-5 shadow-[0_18px_36px_rgba(15,23,42,0.11)] fade-in-down before:pointer-events-none before:absolute before:-left-10 before:top-0 before:h-36 before:w-36 before:rounded-full before:bg-[radial-gradient(circle,_rgba(25,118,210,0.14)_0%,_transparent_70%)] before:blur-2xl after:pointer-events-none after:absolute after:-right-12 after:bottom-0 after:h-40 after:w-40 after:rounded-full after:bg-[radial-gradient(circle,_rgba(255,204,51,0.16)_0%,_transparent_72%)] after:blur-2xl">
           <div
             className="flex items-start justify-between gap-3"
             onMouseEnter={() => setIsCarouselPaused(true)}
@@ -269,23 +269,23 @@ export default function Home() {
           )}
         </section>
 
-        <section className="relative overflow-hidden rounded-[36px] border border-slate-700/15 bg-[radial-gradient(circle_at_16%_14%,rgba(28,113,191,0.28),transparent_24%),radial-gradient(circle_at_74%_12%,rgba(240,190,39,0.24),transparent_22%),radial-gradient(circle_at_62%_72%,rgba(214,42,53,0.16),transparent_24%),linear-gradient(130deg,#0c1630_0%,#0e3f6f_36%,#165b9a_58%,#0f2f5a_100%)] p-5 md:p-8 shadow-[0_24px_58px_rgba(8,22,53,0.34)] fade-in-up">
+        <section className="relative overflow-hidden rounded-[36px] border border-slate-700/15 bg-[radial-gradient(circle_at_16%_14%,rgba(28,113,191,0.28),transparent_24%),radial-gradient(circle_at_74%_12%,rgba(240,190,39,0.24),transparent_22%),radial-gradient(circle_at_62%_72%,rgba(214,42,53,0.16),transparent_24%),linear-gradient(130deg,#0c1630_0%,#0e3f6f_36%,#165b9a_58%,#0f2f5a_100%)] p-5 md:p-8 shadow-[0_24px_58px_rgba(8,22,53,0.34)]">
           <div className="pointer-events-none absolute -top-16 -right-16 h-56 w-56 rounded-full bg-white/10 blur-2xl" />
           <div className="pointer-events-none absolute -bottom-20 left-10 h-56 w-56 rounded-full bg-[#ffd74b]/10 blur-2xl" />
           <div className="pointer-events-none absolute inset-0 opacity-[0.12] [background-image:linear-gradient(to_right,rgba(255,255,255,0.22)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.18)_1px,transparent_1px)] [background-size:34px_34px]" />
           <div className="grid gap-6 md:grid-cols-[1.3fr_0.7fr] md:items-center">
             <div>
-              <p className="inline-flex items-center rounded-full border border-white/20 bg-[linear-gradient(135deg,rgba(255,255,255,0.18)_0%,rgba(255,209,77,0.14)_100%)] px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-slate-100 shadow-[0_10px_20px_rgba(6,18,42,0.16)] backdrop-blur-sm">
+              <p className="fade-in-up inline-flex items-center rounded-full border border-white/20 bg-[linear-gradient(135deg,rgba(255,255,255,0.18)_0%,rgba(255,209,77,0.14)_100%)] px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-slate-100 shadow-[0_10px_20px_rgba(6,18,42,0.16)] backdrop-blur-sm" style={{ animationDelay: '40ms' }}>
                 GED FPS
               </p>
-              <h1 className="mt-3 max-w-3xl text-3xl font-black leading-[1.02] text-white md:text-5xl">
+              <h1 className="fade-in-up mt-3 max-w-3xl text-3xl font-black leading-[1.02] text-white md:text-5xl" style={{ animationDelay: '120ms' }}>
                 Un accueil unique pour piloter le cycle de vie des courriers
               </h1>
-              <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-100/90 md:text-base md:leading-8">
+              <p className="fade-in-up mt-4 max-w-2xl text-sm leading-7 text-slate-100/90 md:text-base md:leading-8" style={{ animationDelay: '200ms' }}>
                 {greeting}. Suivez chaque dossier, réduisez les délais de traitement et maintenez une gouvernance claire entre réception, directions et validation finale.
               </p>
 
-              <div className="mt-4 flex flex-wrap gap-2">
+              <div className="fade-in-up mt-4 flex flex-wrap gap-2" style={{ animationDelay: '270ms' }}>
                 {highlights.map((item) => (
                   <span
                     key={item}
@@ -296,7 +296,7 @@ export default function Home() {
                 ))}
               </div>
 
-              <div className="mt-5 flex flex-wrap gap-3">
+              <div className="fade-in-up mt-5 flex flex-wrap gap-3" style={{ animationDelay: '340ms' }}>
                 {user ? (
                   <>
                     <Link href="/dashboard" className="inline-flex items-center gap-2 rounded-2xl bg-[linear-gradient(135deg,#ffe07a_0%,#f2c13d_100%)] px-4 py-2 text-sm font-semibold text-slate-900 shadow-[0_14px_30px_rgba(240,190,39,0.28)] transition hover:-translate-y-0.5 hover:brightness-105">
@@ -343,7 +343,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="relative overflow-hidden rounded-[30px] border border-[#dce7f4] bg-[linear-gradient(160deg,#ffffff_0%,#eef7ff_55%,#fff8ea_100%)] p-5 shadow-[0_22px_38px_rgba(15,23,42,0.18)] before:pointer-events-none before:absolute before:-right-12 before:-top-10 before:h-36 before:w-36 before:rounded-full before:bg-[radial-gradient(circle,_rgba(23,112,191,0.16)_0%,_transparent_70%)] before:blur-2xl after:pointer-events-none after:absolute after:-left-10 after:bottom-0 after:h-32 after:w-32 after:rounded-full after:bg-[radial-gradient(circle,_rgba(240,190,39,0.2)_0%,_transparent_72%)] after:blur-2xl">
+            <div className="fade-in-scale relative overflow-hidden rounded-[30px] border border-[#dce7f4] bg-[linear-gradient(160deg,#ffffff_0%,#eef7ff_55%,#fff8ea_100%)] p-5 shadow-[0_22px_38px_rgba(15,23,42,0.18)] before:pointer-events-none before:absolute before:-right-12 before:-top-10 before:h-36 before:w-36 before:rounded-full before:bg-[radial-gradient(circle,_rgba(23,112,191,0.16)_0%,_transparent_70%)] before:blur-2xl after:pointer-events-none after:absolute after:-left-10 after:bottom-0 after:h-32 after:w-32 after:rounded-full after:bg-[radial-gradient(circle,_rgba(240,190,39,0.2)_0%,_transparent_72%)] after:blur-2xl" style={{ animationDelay: '180ms' }}>
               <div className="mx-auto mb-4 h-16 w-16 rounded-[24px] border border-[#d9e8f6] bg-white/80 p-2 shadow-[0_12px_26px_rgba(15,23,42,0.08)] md:h-20 md:w-20">
                 <Image
                   src="/logo-fps.png"
@@ -372,7 +372,7 @@ export default function Home() {
               <article
                 key={feature.title}
                 className={`card stat-card group relative overflow-hidden rounded-[28px] ${feature.accent.border} bg-gradient-to-br ${feature.accent.card} p-4 md:p-5 shadow-[0_18px_34px_rgba(15,23,42,0.08)] fade-in-up transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_38px_rgba(15,23,42,0.12)] before:pointer-events-none before:absolute before:-right-12 before:-top-12 before:h-36 before:w-36 before:rounded-full before:opacity-90 before:blur-2xl ${feature.accent.glow}`}
-                style={{ animationDelay: `${index * 60}ms` }}
+                style={{ animationDelay: `${index * 80}ms` }}
               >
                 <div className={`inline-flex rounded-2xl border p-2.5 ${feature.accent.iconWrap}`}>
                   <Icon size={18} className={feature.accent.icon} />
@@ -385,7 +385,7 @@ export default function Home() {
         </section>
 
         <section className="card rounded-[34px] border border-[#dce8f6] bg-[linear-gradient(145deg,#ffffff_0%,#f4f9ff_58%,#fffaf0_100%)] p-5 md:p-7 shadow-[0_20px_44px_rgba(15,23,42,0.08)]">
-          <div className="mb-4 flex items-end justify-between gap-3">
+          <div className="fade-in-up mb-4 flex items-end justify-between gap-3">
             <div>
               <h2 className="text-2xl font-black text-slate-900">Parcours courrier standard</h2>
               <p className="mt-1 text-sm text-slate-700">Un processus simple, visible et mesurable pour toutes les directions.</p>
@@ -393,10 +393,10 @@ export default function Home() {
           </div>
 
           <div className="grid gap-3 md:grid-cols-2">
-            {steps.map((step) => {
+            {steps.map((step, index) => {
               const Icon = step.icon;
               return (
-                <div key={step.title} className={`rounded-[26px] border p-4 shadow-[0_10px_22px_rgba(15,23,42,0.06)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_14px_28px_rgba(15,23,42,0.1)] ${step.accent}`}>
+                <div key={step.title} style={{ animationDelay: `${index * 80}ms` }} className={`fade-in-up rounded-[26px] border p-4 shadow-[0_10px_22px_rgba(15,23,42,0.06)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_14px_28px_rgba(15,23,42,0.1)] ${step.accent}`}>
                   <p className="inline-flex items-center gap-2 text-sm font-bold text-slate-900">
                     <Icon size={16} />
                     {step.title}
