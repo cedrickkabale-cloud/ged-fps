@@ -228,7 +228,7 @@ export default function EtiquetteCourrierPage() {
           <p style={{
             margin: '0.05mm 0 0 0',
             fontSize: '3.85pt',
-            fontWeight: 800,
+            fontWeight: 900,
             lineHeight: 1.2,
             textAlign: 'justify',
             textJustify: 'inter-word',
