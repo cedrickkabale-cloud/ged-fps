@@ -110,7 +110,6 @@ export default function EtiquetteCourrierPage() {
     ? format(new Date(courrier.created_at), 'HH:mm', { locale: fr })
     : '—';
   const annexesLabel = typeof courrier.nombre_annexes === 'number' ? courrier.nombre_annexes : 0;
-  const expediteurLabel = (courrier.expediteur || '—').trim();
   const isThermal = printProfile === 'thermal';
   const isExtreme = printProfile === 'extreme';
   const borderMain = '0.4mm solid #000';
@@ -155,10 +154,10 @@ export default function EtiquetteCourrierPage() {
         {/* FPS / AR — mis en valeur */}
         <p style={{
           margin: 0,
-          fontSize: '6.25pt',
+          fontSize: '6.65pt',
           fontWeight: 900,
           lineHeight: 1,
-          letterSpacing: '0.01em',
+          letterSpacing: '0.02em',
           whiteSpace: 'nowrap',
           textAlign: 'left',
         }}>
@@ -168,7 +167,7 @@ export default function EtiquetteCourrierPage() {
         {/* Numéro */}
         <p style={{
           margin: 0,
-          fontSize: '5.55pt',
+          fontSize: '5.8pt',
           fontWeight: 800,
           lineHeight: 1,
           whiteSpace: 'nowrap',
@@ -178,13 +177,13 @@ export default function EtiquetteCourrierPage() {
         </p>
 
         {/* Date structurée */}
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'stretch', justifyContent: 'center', gap: '0.1mm' }}>
-          <p style={{ margin: 0, fontSize: '3pt', fontWeight: 700, lineHeight: 1, color: '#444', textAlign: 'left' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'stretch', justifyContent: 'center', gap: '0.08mm' }}>
+          <p style={{ margin: 0, fontSize: '2.95pt', fontWeight: 700, lineHeight: 1, color: '#333', textAlign: 'left' }}>
             Reçu le&nbsp;:
           </p>
           <p style={{
             margin: 0,
-            fontSize: '4.25pt',
+            fontSize: '4.35pt',
             fontWeight: 700,
             lineHeight: 1.05,
             textAlign: 'left',
@@ -194,7 +193,7 @@ export default function EtiquetteCourrierPage() {
           </p>
           <p style={{
             margin: 0,
-            fontSize: '4.1pt',
+            fontSize: '4.25pt',
             fontWeight: 700,
             lineHeight: 1,
             textAlign: 'left',
@@ -207,26 +206,13 @@ export default function EtiquetteCourrierPage() {
         {/* Annexes */}
         <p style={{
           margin: 0,
-          fontSize: '4.35pt',
-          fontWeight: 700,
+          fontSize: '4.55pt',
+          fontWeight: 800,
           lineHeight: 1,
           textAlign: 'left',
           whiteSpace: 'nowrap',
         }}>
           Annexes&nbsp;: {annexesLabel}
-        </p>
-
-        <p style={{
-          margin: 0,
-          fontSize: '3.1pt',
-          fontWeight: 700,
-          lineHeight: 1.1,
-          textAlign: 'left',
-          whiteSpace: 'nowrap',
-          overflow: 'hidden',
-          textOverflow: 'ellipsis',
-        }}>
-          Exp.&nbsp;: {expediteurLabel}
         </p>
 
         {/* Séparateur fin */}
