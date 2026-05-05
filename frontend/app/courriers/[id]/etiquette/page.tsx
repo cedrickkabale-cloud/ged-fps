@@ -114,8 +114,8 @@ export default function EtiquetteCourrierPage() {
   const isExtreme = printProfile === 'extreme';
   const borderMain = '0.4mm solid #000';
   const dividerBorder = '0.3mm solid #000';
-  const rightColW = '17.6mm';
-  const qrSize = '16.3mm';
+  const rightColW = '17.4mm';
+  const qrSize = '16.1mm';
 
   // ── Étiquette partagée écran/impression ──────────────────────
   const LabelContent = () => (
@@ -144,19 +144,20 @@ export default function EtiquetteCourrierPage() {
           height: '100%',
           display: 'flex',
           flexDirection: 'column',
-          justifyContent: 'space-between',
+          justifyContent: 'flex-start',
           alignItems: 'stretch',
-          padding: '0.95mm 0.9mm 0.75mm 1.1mm',
+          padding: '0.9mm 0.85mm 0.72mm 1.05mm',
           boxSizing: 'border-box',
+          gap: '0.32mm',
         }}
       >
         {/* FPS / AR — mis en valeur */}
         <p style={{
           margin: 0,
-          fontSize: '7.6pt',
+          fontSize: '7.2pt',
           fontWeight: 900,
           lineHeight: 1,
-          letterSpacing: '0.05em',
+          letterSpacing: '0.04em',
           whiteSpace: 'nowrap',
           textAlign: 'center',
         }}>
@@ -166,7 +167,7 @@ export default function EtiquetteCourrierPage() {
         {/* Numéro */}
         <p style={{
           margin: 0,
-          fontSize: '6pt',
+          fontSize: '5.7pt',
           fontWeight: 800,
           lineHeight: 1,
           whiteSpace: 'nowrap',
@@ -176,22 +177,22 @@ export default function EtiquetteCourrierPage() {
         </p>
 
         {/* Date structurée */}
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.18mm' }}>
-          <p style={{ margin: 0, fontSize: '3.2pt', fontWeight: 600, lineHeight: 1, color: '#555' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.14mm' }}>
+          <p style={{ margin: 0, fontSize: '3pt', fontWeight: 600, lineHeight: 1, color: '#555' }}>
             Reçu le&nbsp;:
           </p>
           <p style={{
             margin: 0,
-            fontSize: '4pt',
+            fontSize: '3.75pt',
             fontWeight: 700,
-            lineHeight: 1.08,
+            lineHeight: 1.05,
             textAlign: 'center',
           }}>
             {jourLabel} {moisLabel} {anneeLabel}
           </p>
           <p style={{
             margin: 0,
-            fontSize: '3.8pt',
+            fontSize: '3.55pt',
             fontWeight: 700,
             lineHeight: 1,
             textAlign: 'center',
@@ -204,7 +205,7 @@ export default function EtiquetteCourrierPage() {
         {/* Annexes */}
         <p style={{
           margin: 0,
-          fontSize: '3.9pt',
+          fontSize: '3.7pt',
           fontWeight: 700,
           lineHeight: 1,
           textAlign: 'center',
@@ -214,22 +215,25 @@ export default function EtiquetteCourrierPage() {
         </p>
 
         {/* Séparateur fin */}
-        <div style={{ height: '0.2mm', background: '#bbb', width: '100%' }} />
+        <div style={{ height: '0.2mm', background: '#b8b8b8', width: '100%' }} />
 
         {/* Slogan — justifié */}
-        <p style={{
-          margin: 0,
-          fontSize: '2.75pt',
-          fontWeight: 600,
-          lineHeight: 1.16,
-          textAlign: 'justify',
-          wordBreak: 'break-word',
-          hyphens: 'auto',
-          color: '#222',
-          flex: 1,
-        }}>
-          {SLOGAN}
-        </p>
+        <div style={{ flex: 1, minHeight: 0, display: 'flex', alignItems: 'stretch' }}>
+          <p style={{
+            margin: 0,
+            fontSize: '2.8pt',
+            fontWeight: 600,
+            lineHeight: 1.15,
+            textAlign: 'justify',
+            textJustify: 'inter-word',
+            wordBreak: 'break-word',
+            hyphens: 'auto',
+            color: '#222',
+            width: '100%',
+          }}>
+            {SLOGAN}
+          </p>
+        </div>
       </div>
 
       {/* ── Séparateur vertical ──────────────────────────── */}
