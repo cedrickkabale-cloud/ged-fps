@@ -95,7 +95,8 @@ export default function EtiquetteCourrierPage() {
   // ── Valeurs formatées ─────────────────────────────────────────
   // Le format physique attendu est toujours FPS/AR
   const typeLabel = 'AR';
-  const numeroLabel = courrier.numero || courrier.reference || `#${courrier.id}`;
+  const rawNumero = courrier.numero || courrier.reference || `#${courrier.id}`;
+  const numeroLabel = rawNumero.replace(/^NO-/i, '');
   const dateLabel = courrier.date_reception
     ? format(new Date(courrier.date_reception), 'dd/MM/yyyy', { locale: fr })
     : '—';
