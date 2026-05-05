@@ -110,12 +110,13 @@ export default function EtiquetteCourrierPage() {
     ? format(new Date(courrier.created_at), 'HH:mm', { locale: fr })
     : '—';
   const annexesLabel = typeof courrier.nombre_annexes === 'number' ? courrier.nombre_annexes : 0;
+  const expediteurLabel = (courrier.expediteur || '—').trim();
   const isThermal = printProfile === 'thermal';
   const isExtreme = printProfile === 'extreme';
   const borderMain = '0.4mm solid #000';
   const dividerBorder = '0.3mm solid #000';
-  const rightColW = '20.2mm';
-  const qrSize = '19.2mm';
+  const rightColW = '19.4mm';
+  const qrSize = '18.3mm';
 
   // ── Étiquette partagée écran/impression ──────────────────────
   const LabelContent = () => (
@@ -142,21 +143,22 @@ export default function EtiquetteCourrierPage() {
           flex: 1,
           minWidth: 0,
           height: '100%',
-          display: 'grid',
-          gridTemplateRows: '1fr 0.9fr 1.28fr 0.72fr 0.1fr 1.45fr',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'flex-start',
           alignItems: 'stretch',
           padding: '0.72mm 0.82mm 0.68mm 0.92mm',
           boxSizing: 'border-box',
-          rowGap: '0.2mm',
+          gap: '0.24mm',
         }}
       >
         {/* FPS / AR — mis en valeur */}
         <p style={{
           margin: 0,
-          fontSize: '6.7pt',
+          fontSize: '6.25pt',
           fontWeight: 900,
           lineHeight: 1,
-          letterSpacing: '0.02em',
+          letterSpacing: '0.01em',
           whiteSpace: 'nowrap',
           textAlign: 'left',
         }}>
@@ -166,7 +168,7 @@ export default function EtiquetteCourrierPage() {
         {/* Numéro */}
         <p style={{
           margin: 0,
-          fontSize: '6pt',
+          fontSize: '5.55pt',
           fontWeight: 800,
           lineHeight: 1,
           whiteSpace: 'nowrap',
@@ -177,12 +179,12 @@ export default function EtiquetteCourrierPage() {
 
         {/* Date structurée */}
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'stretch', justifyContent: 'center', gap: '0.1mm' }}>
-          <p style={{ margin: 0, fontSize: '3.05pt', fontWeight: 700, lineHeight: 1, color: '#444', textAlign: 'left' }}>
+          <p style={{ margin: 0, fontSize: '3pt', fontWeight: 700, lineHeight: 1, color: '#444', textAlign: 'left' }}>
             Reçu le&nbsp;:
           </p>
           <p style={{
             margin: 0,
-            fontSize: '4.55pt',
+            fontSize: '4.25pt',
             fontWeight: 700,
             lineHeight: 1.05,
             textAlign: 'left',
@@ -192,7 +194,7 @@ export default function EtiquetteCourrierPage() {
           </p>
           <p style={{
             margin: 0,
-            fontSize: '4.4pt',
+            fontSize: '4.1pt',
             fontWeight: 700,
             lineHeight: 1,
             textAlign: 'left',
@@ -205,7 +207,7 @@ export default function EtiquetteCourrierPage() {
         {/* Annexes */}
         <p style={{
           margin: 0,
-          fontSize: '4.85pt',
+          fontSize: '4.35pt',
           fontWeight: 700,
           lineHeight: 1,
           textAlign: 'left',
@@ -214,19 +216,30 @@ export default function EtiquetteCourrierPage() {
           Annexes&nbsp;: {annexesLabel}
         </p>
 
+        <p style={{
+          margin: 0,
+          fontSize: '3.1pt',
+          fontWeight: 700,
+          lineHeight: 1.1,
+          textAlign: 'left',
+          whiteSpace: 'nowrap',
+          overflow: 'hidden',
+          textOverflow: 'ellipsis',
+        }}>
+          Exp.&nbsp;: {expediteurLabel}
+        </p>
+
         {/* Séparateur fin */}
         <div style={{ height: '0.2mm', background: '#b8b8b8', width: '100%' }} />
 
         {/* Slogan — justifié */}
-        <div style={{ flex: 1, minHeight: 0, display: 'flex', alignItems: 'stretch' }}>
+        <div style={{ flex: 1, minHeight: 0, display: 'flex', alignItems: 'flex-start' }}>
           <p style={{
             margin: 0,
-            fontSize: '2.95pt',
-            fontWeight: 600,
-            lineHeight: 1.15,
-            textAlign: 'justify',
-            textJustify: 'inter-word',
-            textAlignLast: 'left',
+            fontSize: '3.05pt',
+            fontWeight: 700,
+            lineHeight: 1.18,
+            textAlign: 'left',
             wordBreak: 'break-word',
             hyphens: 'auto',
             color: '#222',
@@ -250,7 +263,7 @@ export default function EtiquetteCourrierPage() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          padding: '0.45mm',
+          padding: '0.5mm',
         }}
       >
         {qrDataUrl ? (
