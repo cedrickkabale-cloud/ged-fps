@@ -185,7 +185,7 @@ export default function Home() {
       <div className="pointer-events-none absolute inset-0 opacity-[0.08] [background-image:linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] [background-size:36px_36px]" />
 
       <div className="relative mx-auto w-full max-w-6xl space-y-6 md:space-y-8">
-        <section className="card border-slate-300/70 bg-[linear-gradient(130deg,#ffffff_0%,#f8fbff_56%,#ebf5ff_100%)] p-4 md:p-5 shadow-[0_16px_30px_rgba(15,23,42,0.11)] fade-in-up">
+        <section className="card relative overflow-hidden rounded-[30px] border border-[#d9e6f6] bg-[linear-gradient(135deg,#ffffff_0%,#f6fbff_42%,#fff7e8_100%)] p-4 md:p-5 shadow-[0_18px_36px_rgba(15,23,42,0.11)] fade-in-up before:pointer-events-none before:absolute before:-left-10 before:top-0 before:h-36 before:w-36 before:rounded-full before:bg-[radial-gradient(circle,_rgba(25,118,210,0.14)_0%,_transparent_70%)] before:blur-2xl after:pointer-events-none after:absolute after:-right-12 after:bottom-0 after:h-40 after:w-40 after:rounded-full after:bg-[radial-gradient(circle,_rgba(255,204,51,0.16)_0%,_transparent_72%)] after:blur-2xl">
           <div
             className="flex items-start justify-between gap-3"
             onMouseEnter={() => setIsCarouselPaused(true)}
@@ -199,7 +199,7 @@ export default function Home() {
             }}
           >
             <div>
-              <p className="inline-flex items-center gap-2 rounded-full border border-cyan-300/60 bg-cyan-50/90 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.13em] text-slate-800">
+              <p className="inline-flex items-center gap-2 rounded-full border border-[#9fdcff] bg-[linear-gradient(135deg,#e7f8ff_0%,#fff4df_100%)] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.13em] text-slate-800 shadow-[0_10px_18px_rgba(15,23,42,0.06)]">
                 <Megaphone size={14} className={ICON_ACCENT_CLASS} />
                 Notifications importantes
               </p>
@@ -218,7 +218,7 @@ export default function Home() {
                   <div className="pt-1">
                     <Link
                       href={activeNotification.courrier_id ? `/courriers/${activeNotification.courrier_id}` : '/notifications'}
-                      className="inline-flex items-center gap-1.5 rounded-lg bg-slate-800 px-3 py-1.5 text-sm font-semibold text-white transition hover:bg-slate-900"
+                      className="inline-flex items-center gap-1.5 rounded-xl bg-[linear-gradient(135deg,#0f6fb5_0%,#d62a35_58%,#f0be27_100%)] px-3 py-1.5 text-sm font-semibold text-white shadow-[0_10px_20px_rgba(15,23,42,0.16)] transition hover:-translate-y-0.5 hover:brightness-105"
                     >
                         Ouvrir l&apos;alerte
                       <ArrowRight size={15} />
@@ -237,7 +237,7 @@ export default function Home() {
                 <button
                   type="button"
                   onClick={goToPreviousSlide}
-                  className="inline-flex h-8 w-8 items-center justify-center rounded-lg border border-slate-300 bg-white text-slate-700 hover:bg-cyan-50"
+                  className="inline-flex h-8 w-8 items-center justify-center rounded-xl border border-[#d7e7f8] bg-white/95 text-slate-700 shadow-[0_8px_16px_rgba(15,23,42,0.05)] transition hover:-translate-y-0.5 hover:bg-[#eff8ff]"
                   aria-label="Notification précédente"
                 >
                   <ChevronLeft size={16} className={ICON_ACCENT_CLASS} />
@@ -245,7 +245,7 @@ export default function Home() {
                 <button
                   type="button"
                   onClick={goToNextSlide}
-                  className="inline-flex h-8 w-8 items-center justify-center rounded-lg border border-slate-300 bg-white text-slate-700 hover:bg-cyan-50"
+                  className="inline-flex h-8 w-8 items-center justify-center rounded-xl border border-[#d7e7f8] bg-white/95 text-slate-700 shadow-[0_8px_16px_rgba(15,23,42,0.05)] transition hover:-translate-y-0.5 hover:bg-[#fff6e3]"
                   aria-label="Notification suivante"
                 >
                   <ChevronRight size={16} className={ICON_ACCENT_CLASS} />
@@ -261,7 +261,7 @@ export default function Home() {
                   key={item.id}
                   type="button"
                   onClick={() => setCurrentSlide(index)}
-                  className={`h-2 rounded-full transition-all ${index === currentSlide ? 'w-6 bg-slate-700' : 'w-2 bg-slate-400/70'}`}
+                  className={`h-2 rounded-full transition-all ${index === currentSlide ? 'w-6 bg-[linear-gradient(90deg,#0f6fb5_0%,#d62a35_58%,#f0be27_100%)]' : 'w-2 bg-slate-400/70'}`}
                   aria-label={`Aller à la notification ${index + 1}`}
                 />
               ))}
@@ -269,18 +269,19 @@ export default function Home() {
           )}
         </section>
 
-        <section className="relative overflow-hidden rounded-3xl border border-slate-700/25 bg-[radial-gradient(circle_at_22%_8%,rgba(253,224,71,0.2),transparent_30%),linear-gradient(128deg,#0f172a_0%,#13384d_45%,#1f6f78_100%)] p-5 md:p-8 shadow-[0_20px_48px_rgba(15,23,42,0.3)] fade-in-up">
+        <section className="relative overflow-hidden rounded-[36px] border border-slate-700/15 bg-[radial-gradient(circle_at_16%_14%,rgba(28,113,191,0.28),transparent_24%),radial-gradient(circle_at_74%_12%,rgba(240,190,39,0.24),transparent_22%),radial-gradient(circle_at_62%_72%,rgba(214,42,53,0.16),transparent_24%),linear-gradient(130deg,#0c1630_0%,#0e3f6f_36%,#165b9a_58%,#0f2f5a_100%)] p-5 md:p-8 shadow-[0_24px_58px_rgba(8,22,53,0.34)] fade-in-up">
           <div className="pointer-events-none absolute -top-16 -right-16 h-56 w-56 rounded-full bg-white/10 blur-2xl" />
-          <div className="pointer-events-none absolute -bottom-20 left-10 h-56 w-56 rounded-full bg-amber-100/10 blur-2xl" />
+          <div className="pointer-events-none absolute -bottom-20 left-10 h-56 w-56 rounded-full bg-[#ffd74b]/10 blur-2xl" />
+          <div className="pointer-events-none absolute inset-0 opacity-[0.12] [background-image:linear-gradient(to_right,rgba(255,255,255,0.22)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.18)_1px,transparent_1px)] [background-size:34px_34px]" />
           <div className="grid gap-6 md:grid-cols-[1.3fr_0.7fr] md:items-center">
             <div>
-              <p className="inline-flex items-center rounded-full border border-cyan-100/45 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-slate-100">
+              <p className="inline-flex items-center rounded-full border border-white/20 bg-[linear-gradient(135deg,rgba(255,255,255,0.18)_0%,rgba(255,209,77,0.14)_100%)] px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-slate-100 shadow-[0_10px_20px_rgba(6,18,42,0.16)] backdrop-blur-sm">
                 GED FPS
               </p>
-              <h1 className="mt-3 text-3xl font-black leading-tight text-white md:text-5xl">
+              <h1 className="mt-3 max-w-3xl text-3xl font-black leading-[1.02] text-white md:text-5xl">
                 Un accueil unique pour piloter le cycle de vie des courriers
               </h1>
-              <p className="mt-3 max-w-2xl text-sm leading-relaxed text-slate-200 md:text-base">
+              <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-100/90 md:text-base md:leading-8">
                 {greeting}. Suivez chaque dossier, réduisez les délais de traitement et maintenez une gouvernance claire entre réception, directions et validation finale.
               </p>
 
@@ -288,7 +289,7 @@ export default function Home() {
                 {highlights.map((item) => (
                   <span
                     key={item}
-                    className="inline-flex items-center rounded-full border border-white/30 bg-white/10 px-3 py-1 text-xs font-semibold text-slate-100"
+                    className="inline-flex items-center rounded-full border border-white/18 bg-white/10 px-3 py-1 text-xs font-semibold text-slate-50 shadow-[0_10px_18px_rgba(6,18,42,0.12)] backdrop-blur-sm"
                   >
                     {item}
                   </span>
@@ -298,11 +299,11 @@ export default function Home() {
               <div className="mt-5 flex flex-wrap gap-3">
                 {user ? (
                   <>
-                    <Link href="/dashboard" className="inline-flex items-center gap-2 rounded-xl bg-amber-200 px-4 py-2 text-sm font-semibold text-slate-900 transition hover:bg-amber-100">
+                    <Link href="/dashboard" className="inline-flex items-center gap-2 rounded-2xl bg-[linear-gradient(135deg,#ffe07a_0%,#f2c13d_100%)] px-4 py-2 text-sm font-semibold text-slate-900 shadow-[0_14px_30px_rgba(240,190,39,0.28)] transition hover:-translate-y-0.5 hover:brightness-105">
                       Ouvrir le dashboard
                       <ArrowRight size={16} />
                     </Link>
-                    <Link href="/courriers" className="inline-flex items-center gap-2 rounded-xl border border-white/35 bg-white/10 px-4 py-2 text-sm font-medium text-slate-100 transition hover:bg-white/20">
+                    <Link href="/courriers" className="inline-flex items-center gap-2 rounded-2xl border border-white/24 bg-white/10 px-4 py-2 text-sm font-medium text-slate-100 shadow-[0_10px_20px_rgba(6,18,42,0.12)] transition hover:-translate-y-0.5 hover:bg-white/18">
                       Voir les courriers
                     </Link>
                   </>
@@ -311,7 +312,7 @@ export default function Home() {
                     <Link
                       href="/login"
                       aria-busy={isLoading}
-                      className="inline-flex items-center gap-2 rounded-xl bg-amber-200 px-4 py-2 text-sm font-semibold text-slate-900 transition hover:bg-amber-100"
+                      className="inline-flex items-center gap-2 rounded-2xl bg-[linear-gradient(135deg,#ffe07a_0%,#f2c13d_100%)] px-4 py-2 text-sm font-semibold text-slate-900 shadow-[0_14px_30px_rgba(240,190,39,0.28)] transition hover:-translate-y-0.5 hover:brightness-105"
                     >
                       {isLoading && (
                         <span
@@ -323,7 +324,7 @@ export default function Home() {
                       <ArrowRight size={16} />
                     </Link>
                     {isLoading && (
-                      <span className="inline-flex items-center rounded-xl border border-white/30 bg-white/10 px-4 py-2 text-sm font-medium text-slate-100">
+                      <span className="inline-flex items-center rounded-2xl border border-white/24 bg-white/10 px-4 py-2 text-sm font-medium text-slate-100 shadow-[0_10px_20px_rgba(6,18,42,0.12)]">
                         Vérification de session...
                       </span>
                     )}
@@ -333,7 +334,7 @@ export default function Home() {
                         e.preventDefault();
                         document.getElementById('apercu')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
                       }}
-                      className="inline-flex items-center gap-2 rounded-xl border border-white/35 bg-white/10 px-4 py-2 text-sm font-medium text-slate-100 transition hover:bg-white/20 cursor-pointer"
+                      className="inline-flex cursor-pointer items-center gap-2 rounded-2xl border border-white/24 bg-white/10 px-4 py-2 text-sm font-medium text-slate-100 shadow-[0_10px_20px_rgba(6,18,42,0.12)] transition hover:-translate-y-0.5 hover:bg-white/18"
                     >
                       Aperçu de la plateforme
                     </a>
@@ -342,8 +343,8 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="card border-slate-300/80 bg-[linear-gradient(165deg,#ffffff_0%,#f5fbff_70%,#eef8ff_100%)] p-5 shadow-[0_16px_30px_rgba(15,23,42,0.2)]">
-              <div className="mx-auto mb-3 h-16 w-16 md:h-20 md:w-20">
+            <div className="relative overflow-hidden rounded-[30px] border border-[#dce7f4] bg-[linear-gradient(160deg,#ffffff_0%,#eef7ff_55%,#fff8ea_100%)] p-5 shadow-[0_22px_38px_rgba(15,23,42,0.18)] before:pointer-events-none before:absolute before:-right-12 before:-top-10 before:h-36 before:w-36 before:rounded-full before:bg-[radial-gradient(circle,_rgba(23,112,191,0.16)_0%,_transparent_70%)] before:blur-2xl after:pointer-events-none after:absolute after:-left-10 after:bottom-0 after:h-32 after:w-32 after:rounded-full after:bg-[radial-gradient(circle,_rgba(240,190,39,0.2)_0%,_transparent_72%)] after:blur-2xl">
+              <div className="mx-auto mb-4 h-16 w-16 rounded-[24px] border border-[#d9e8f6] bg-white/80 p-2 shadow-[0_12px_26px_rgba(15,23,42,0.08)] md:h-20 md:w-20">
                 <Image
                   src="/logo-fps.png"
                   alt="Logo FPS"
@@ -353,11 +354,11 @@ export default function Home() {
                   priority
                 />
               </div>
-              <h2 className="text-center text-lg font-bold text-slate-900">Fonds de Promotion de la Santé</h2>
-              <p className="mt-2 text-center text-sm text-slate-600">
+              <h2 className="text-center text-xl font-black text-slate-900">Fonds de Promotion de la Santé</h2>
+              <p className="mt-2 text-center text-sm leading-7 text-slate-600">
                 Gestion électronique des documents et courriers administratifs.
               </p>
-              <div className="mt-4 rounded-xl border border-cyan-200 bg-cyan-50/65 p-3 text-xs text-slate-700">
+              <div className="mt-4 rounded-2xl border border-[#ffe099] bg-[linear-gradient(135deg,#fff8de_0%,#fff1c6_100%)] p-3 text-xs leading-6 text-slate-700 shadow-[0_10px_18px_rgba(240,190,39,0.12)]">
                 Conseil: utilisez le dashboard pour visualiser les urgences et prioriser les actions du jour.
               </div>
             </div>
