@@ -28,10 +28,14 @@ export default function EtiquetteCourrierPage() {
 
   useEffect(() => {
     if (isAuthLoading) return;
+    if (!user) {
+      router.replace(`/login?from=%2Fcourriers%2F${id}%2Fetiquette`);
+      return;
+    }
     if (!canPrintLabel) {
       router.replace(`/acces-refuse?action=print_label&from=%2Fcourriers%2F${id}%2Fetiquette`);
     }
-  }, [canPrintLabel, id, isAuthLoading, router]);
+  }, [canPrintLabel, id, isAuthLoading, router, user]);
 
   useEffect(() => {
     if (!canPrintLabel) return;
