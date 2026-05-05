@@ -100,6 +100,9 @@ export default function EtiquetteCourrierPage() {
   const jourSemaineLabel = courrier.date_reception
     ? format(new Date(courrier.date_reception), 'EEEE', { locale: fr })
     : '—';
+  const jourSemaineCapLabel = jourSemaineLabel === '—'
+    ? '—'
+    : `${jourSemaineLabel.charAt(0).toUpperCase()}${jourSemaineLabel.slice(1)}`;
   const jourLabel = courrier.date_reception
     ? format(new Date(courrier.date_reception), 'dd', { locale: fr })
     : '—';
@@ -150,13 +153,13 @@ export default function EtiquetteCourrierPage() {
           alignItems: 'stretch',
           padding: '0.72mm 0.82mm 0.68mm 0.92mm',
           boxSizing: 'border-box',
-          rowGap: '0.2mm',
+          rowGap: '0.16mm',
         }}
       >
         {/* FPS / AR — mis en valeur */}
         <p style={{
           margin: 0,
-          fontSize: '6.65pt',
+          fontSize: '6.45pt',
           fontWeight: 900,
           lineHeight: 1,
           letterSpacing: '0.02em',
@@ -169,7 +172,7 @@ export default function EtiquetteCourrierPage() {
         {/* Numéro */}
         <p style={{
           margin: 0,
-          fontSize: '5.8pt',
+          fontSize: '5.65pt',
           fontWeight: 800,
           lineHeight: 1,
           whiteSpace: 'nowrap',
@@ -179,23 +182,33 @@ export default function EtiquetteCourrierPage() {
         </p>
 
         {/* Date structurée */}
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'stretch', justifyContent: 'center', gap: '0.08mm' }}>
-          <p style={{ margin: 0, fontSize: '2.95pt', fontWeight: 700, lineHeight: 1, color: '#333', textAlign: 'left' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'stretch', justifyContent: 'center', gap: '0.06mm' }}>
+          <p style={{ margin: 0, fontSize: '2.9pt', fontWeight: 700, lineHeight: 1, color: '#333', textAlign: 'left' }}>
             Reçu le&nbsp;:
           </p>
           <p style={{
             margin: 0,
-            fontSize: '4.35pt',
+            fontSize: '3.45pt',
+            fontWeight: 700,
+            lineHeight: 1,
+            textAlign: 'left',
+            whiteSpace: 'nowrap',
+          }}>
+            {jourSemaineCapLabel}
+          </p>
+          <p style={{
+            margin: 0,
+            fontSize: '4.2pt',
             fontWeight: 700,
             lineHeight: 1.05,
             textAlign: 'left',
             whiteSpace: 'nowrap',
           }}>
-            {jourSemaineLabel} {jourLabel} {moisLabel} {anneeLabel}
+            {jourLabel} {moisLabel} {anneeLabel}
           </p>
           <p style={{
             margin: 0,
-            fontSize: '4.25pt',
+            fontSize: '4.15pt',
             fontWeight: 700,
             lineHeight: 1,
             textAlign: 'left',
@@ -208,7 +221,7 @@ export default function EtiquetteCourrierPage() {
         {/* Annexes */}
         <p style={{
           margin: 0,
-          fontSize: '4.55pt',
+          fontSize: '4.45pt',
           fontWeight: 800,
           lineHeight: 1,
           textAlign: 'left',
@@ -221,7 +234,7 @@ export default function EtiquetteCourrierPage() {
         <div style={{ height: '0.2mm', background: '#b8b8b8', width: '100%' }} />
 
         {/* Slogan — justifié */}
-        <div style={{ flex: 1, minHeight: 0, display: 'flex', alignItems: 'flex-start' }}>
+        <div style={{ flex: 1, minHeight: 0, display: 'flex', alignItems: 'center' }}>
           <p style={{
             margin: 0,
             fontSize: '3.05pt',
