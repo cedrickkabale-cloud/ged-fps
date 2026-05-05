@@ -97,8 +97,14 @@ export default function EtiquetteCourrierPage() {
   const typeLabel = 'AR';
   const rawNumero = courrier.numero || courrier.reference || `#${courrier.id}`;
   const numeroLabel = rawNumero.replace(/^NO-/i, '');
-  const dateLabel = courrier.date_reception
-    ? format(new Date(courrier.date_reception), 'dd/MM/yyyy', { locale: fr })
+  const jourLabel = courrier.date_reception
+    ? format(new Date(courrier.date_reception), 'dd', { locale: fr })
+    : '—';
+  const moisLabel = courrier.date_reception
+    ? format(new Date(courrier.date_reception), 'MMMM', { locale: fr })
+    : '—';
+  const anneeLabel = courrier.date_reception
+    ? format(new Date(courrier.date_reception), 'yyyy', { locale: fr })
     : '—';
   const heureLabel = courrier.created_at
     ? format(new Date(courrier.created_at), 'HH:mm', { locale: fr })
@@ -110,11 +116,8 @@ export default function EtiquetteCourrierPage() {
   const dividerBorder = '0.3mm solid #000';
   const rightColW = '19mm';
   const qrSize = '18mm';
-  const vPad = '0.8mm';
-  const lPad = '1mm';
 
   // ── Étiquette partagée écran/impression ──────────────────────
-  // Unité de base : 1u = 1mm en impression. Pour l'aperçu on scale 4x via transform.
   const LabelContent = () => (
     <div
       className={`label-print ${isThermal ? 'label-print-thermal' : ''} ${isExtreme ? 'label-print-extreme' : ''}`}
@@ -141,19 +144,19 @@ export default function EtiquetteCourrierPage() {
           height: '100%',
           display: 'flex',
           flexDirection: 'column',
-          justifyContent: 'space-evenly',
-          alignItems: 'center',
-          padding: `${vPad} 0 ${vPad} ${lPad}`,
+          justifyContent: 'space-between',
+          alignItems: 'stretch',
+          padding: '1mm 1mm 0.8mm 1.2mm',
           boxSizing: 'border-box',
         }}
       >
-        {/* FPS / AR */}
+        {/* FPS / AR — mis en valeur */}
         <p style={{
           margin: 0,
-          fontSize: '7pt',
+          fontSize: '8.5pt',
           fontWeight: 900,
           lineHeight: 1,
-          letterSpacing: '0.05em',
+          letterSpacing: '0.08em',
           whiteSpace: 'nowrap',
           textAlign: 'center',
         }}>
@@ -164,7 +167,7 @@ export default function EtiquetteCourrierPage() {
         <p style={{
           margin: 0,
           fontSize: '6.5pt',
-          fontWeight: 900,
+          fontWeight: 800,
           lineHeight: 1,
           whiteSpace: 'nowrap',
           textAlign: 'center',
@@ -172,38 +175,47 @@ export default function EtiquetteCourrierPage() {
           N°{numeroLabel}
         </p>
 
-        {/* Date & heure */}
-        <p style={{
-          margin: 0,
-          fontSize: '4.8pt',
-          fontWeight: 700,
-          lineHeight: 1,
-          textAlign: 'center',
-          whiteSpace: 'nowrap',
-        }}>
-          Reçu le {dateLabel} à {heureLabel}
-        </p>
+        {/* Date structurée */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.15mm' }}>
+          <p style={{ margin: 0, fontSize: '3.4pt', fontWeight: 600, lineHeight: 1, color: '#555' }}>
+            Reçu le&nbsp;:
+          </p>
+          <p style={{
+            margin: 0,
+            fontSize: '4.5pt',
+            fontWeight: 700,
+            lineHeight: 1,
+            whiteSpace: 'nowrap',
+          }}>
+            {jourLabel} {moisLabel} {anneeLabel} · {heureLabel}
+          </p>
+        </div>
 
         {/* Annexes */}
         <p style={{
           margin: 0,
-          fontSize: '4.6pt',
+          fontSize: '4pt',
           fontWeight: 700,
           lineHeight: 1,
-          textAlign: 'center',
           whiteSpace: 'nowrap',
         }}>
           Annexes&nbsp;: {annexesLabel}
         </p>
 
-        {/* Slogan */}
+        {/* Séparateur fin */}
+        <div style={{ height: '0.2mm', background: '#bbb', width: '100%' }} />
+
+        {/* Slogan — justifié */}
         <p style={{
           margin: 0,
-          fontSize: '3.2pt',
+          fontSize: '2.9pt',
           fontWeight: 600,
-          lineHeight: 1.1,
-          textAlign: 'center',
+          lineHeight: 1.2,
+          textAlign: 'justify',
           wordBreak: 'break-word',
+          hyphens: 'auto',
+          color: '#222',
+          flex: 1,
         }}>
           {SLOGAN}
         </p>
