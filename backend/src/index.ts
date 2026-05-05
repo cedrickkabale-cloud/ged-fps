@@ -8,6 +8,7 @@ import morgan from 'morgan';
 import path from 'path';
 import { query } from './db';
 
+import { runMigrations } from './db/migrate';
 import authRoutes from './routes/auth';
 import courriersRoutes from './routes/courriers';
 import directionsRoutes from './routes/directions';
