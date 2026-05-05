@@ -34,21 +34,49 @@ const features = [
     title: 'Traçabilité complète',
     description: 'Chaque courrier garde un historique clair: réception, affectation, traitement, retour.',
     icon: FileCheck2,
+    accent: {
+      card: 'from-[#edf6ff] via-white to-[#f9fbff]',
+      iconWrap: 'border-[#9ed7ff] bg-[#e6f6ff] shadow-[0_10px_22px_rgba(22,114,193,0.14)]',
+      icon: 'text-[#0f6fb5]',
+      border: 'border-[#d8ebfb] hover:border-[#7cc7ff]',
+      glow: 'before:bg-[radial-gradient(circle,_rgba(18,113,197,0.18)_0%,_transparent_68%)]',
+    },
   },
   {
     title: 'Workflow piloté',
     description: 'Les étapes métier sont normalisées pour limiter les oublis et accélérer les validations.',
     icon: FolderKanban,
+    accent: {
+      card: 'from-[#fff3e5] via-white to-[#fffaf0]',
+      iconWrap: 'border-[#ffd27a] bg-[#fff2cc] shadow-[0_10px_22px_rgba(232,171,35,0.18)]',
+      icon: 'text-[#d48c00]',
+      border: 'border-[#f7e4bb] hover:border-[#f1c251]',
+      glow: 'before:bg-[radial-gradient(circle,_rgba(255,196,52,0.22)_0%,_transparent_68%)]',
+    },
   },
   {
     title: 'Alertes en temps réel',
     description: 'Les notifications signalent les actions urgentes et les délais dépassés.',
     icon: BellRing,
+    accent: {
+      card: 'from-[#fff0f0] via-white to-[#fff8f8]',
+      iconWrap: 'border-[#ffb4b4] bg-[#ffe9e9] shadow-[0_10px_22px_rgba(220,53,69,0.16)]',
+      icon: 'text-[#d62839]',
+      border: 'border-[#f6d6d6] hover:border-[#ef8f97]',
+      glow: 'before:bg-[radial-gradient(circle,_rgba(214,40,57,0.18)_0%,_transparent_68%)]',
+    },
   },
   {
     title: 'Accès sécurisé',
     description: 'Les droits sont contrôlés par rôle pour protéger les actions sensibles.',
     icon: ShieldCheck,
+    accent: {
+      card: 'from-[#eef7ff] via-white to-[#f6fbff]',
+      iconWrap: 'border-[#b8d9ff] bg-[#ecf6ff] shadow-[0_10px_22px_rgba(42,104,173,0.14)]',
+      icon: 'text-[#1b5fa7]',
+      border: 'border-[#d9e8f8] hover:border-[#9dc5ef]',
+      glow: 'before:bg-[radial-gradient(circle,_rgba(29,102,173,0.16)_0%,_transparent_68%)]',
+    },
   },
 ];
 
@@ -57,21 +85,25 @@ const steps = [
     title: '1. Réception',
     text: 'Le courrier est enregistré, référencé et indexé avec ses informations clés.',
     icon: ScanLine,
+    accent: 'border-[#d9ecfb] bg-[linear-gradient(160deg,#ffffff_0%,#eff8ff_100%)] hover:border-[#8ccfff] [&_svg]:text-[#0f6fb5]',
   },
   {
     title: '2. Orientation',
     text: 'Le document est affecté à la bonne direction selon la nature du dossier.',
     icon: ArrowRight,
+    accent: 'border-[#f5e1b4] bg-[linear-gradient(160deg,#ffffff_0%,#fff8e7_100%)] hover:border-[#efc14d] [&_svg]:text-[#d48c00]',
   },
   {
     title: '3. Traitement',
     text: 'La direction suit l\'instruction et marque l\'avancement au fil des actions.',
     icon: Clock3,
+    accent: 'border-[#f3d1d1] bg-[linear-gradient(160deg,#ffffff_0%,#fff3f3_100%)] hover:border-[#e68c95] [&_svg]:text-[#cf2f3f]',
   },
   {
     title: '4. Clôture',
     text: 'Le retour est validé et l\'historique reste consultable pour audit et reporting.',
     icon: CheckCircle2,
+    accent: 'border-[#d7e7f8] bg-[linear-gradient(160deg,#ffffff_0%,#f3f9ff_100%)] hover:border-[#91b9e3] [&_svg]:text-[#1f5e9f]',
   },
 ];
 
@@ -338,20 +370,20 @@ export default function Home() {
             return (
               <article
                 key={feature.title}
-                className="card stat-card border-slate-200 bg-[linear-gradient(155deg,#ffffff_0%,#f8fcff_45%,#eff8ff_100%)] p-4 md:p-5 shadow-[0_10px_20px_rgba(15,23,42,0.08)] fade-in-up hover:shadow-[0_14px_26px_rgba(15,23,42,0.12)] transition-shadow"
+                className={`card stat-card group relative overflow-hidden rounded-[28px] ${feature.accent.border} bg-gradient-to-br ${feature.accent.card} p-4 md:p-5 shadow-[0_18px_34px_rgba(15,23,42,0.08)] fade-in-up transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_38px_rgba(15,23,42,0.12)] before:pointer-events-none before:absolute before:-right-12 before:-top-12 before:h-36 before:w-36 before:rounded-full before:opacity-90 before:blur-2xl ${feature.accent.glow}`}
                 style={{ animationDelay: `${index * 60}ms` }}
               >
-                <div className="inline-flex rounded-xl bg-cyan-50 p-2 shadow-sm border border-cyan-100">
-                  <Icon size={18} className={ICON_ACCENT_CLASS} />
+                <div className={`inline-flex rounded-2xl border p-2.5 ${feature.accent.iconWrap}`}>
+                  <Icon size={18} className={feature.accent.icon} />
                 </div>
-                <h3 className="mt-3 text-base font-bold text-slate-900">{feature.title}</h3>
-                <p className="mt-1 text-sm leading-relaxed text-slate-700">{feature.description}</p>
+                <h3 className="mt-3 text-[1.15rem] font-black leading-tight text-slate-900">{feature.title}</h3>
+                <p className="mt-2 text-sm leading-8 text-slate-700 md:text-[15px]">{feature.description}</p>
               </article>
             );
           })}
         </section>
 
-        <section className="card rounded-3xl border-slate-200 bg-[linear-gradient(145deg,#ffffff_0%,#f7fcff_66%,#eef8ff_100%)] p-5 md:p-7">
+        <section className="card rounded-[34px] border border-[#dce8f6] bg-[linear-gradient(145deg,#ffffff_0%,#f4f9ff_58%,#fffaf0_100%)] p-5 md:p-7 shadow-[0_20px_44px_rgba(15,23,42,0.08)]">
           <div className="mb-4 flex items-end justify-between gap-3">
             <div>
               <h2 className="text-2xl font-black text-slate-900">Parcours courrier standard</h2>
@@ -363,12 +395,12 @@ export default function Home() {
             {steps.map((step) => {
               const Icon = step.icon;
               return (
-                <div key={step.title} className="rounded-2xl border border-slate-200 bg-white p-4 shadow-[0_8px_18px_rgba(15,23,42,0.07)] hover:border-cyan-200 transition-colors">
+                <div key={step.title} className={`rounded-[26px] border p-4 shadow-[0_10px_22px_rgba(15,23,42,0.06)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_14px_28px_rgba(15,23,42,0.1)] ${step.accent}`}>
                   <p className="inline-flex items-center gap-2 text-sm font-bold text-slate-900">
-                    <Icon size={16} className="text-cyan-700" />
+                    <Icon size={16} />
                     {step.title}
                   </p>
-                  <p className="mt-1 text-sm text-slate-700">{step.text}</p>
+                  <p className="mt-2 text-sm leading-7 text-slate-700">{step.text}</p>
                 </div>
               );
             })}
