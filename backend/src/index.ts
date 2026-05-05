@@ -230,6 +230,7 @@ app.listen(PORT, () => {
   console.info(`✅ Serveur GED FPS démarré sur http://localhost:${PORT}`);
   console.info(`📋 Environnement : ${process.env.NODE_ENV || 'development'}`);
   void (async () => {
+    await runMigrations();
     await ensureCourriersAnnexesColumn();
     await ensureUsersMustChangePasswordColumn();
     await ensurePasswordResetTokensTable();
