@@ -114,8 +114,8 @@ export default function EtiquetteCourrierPage() {
   const isExtreme = printProfile === 'extreme';
   const borderMain = '0.4mm solid #000';
   const dividerBorder = '0.3mm solid #000';
-  const rightColW = '17.4mm';
-  const qrSize = '16.1mm';
+  const rightColW = '22.4mm';
+  const qrSize = '21.6mm';
 
   // ── Étiquette partagée écran/impression ──────────────────────
   const LabelContent = () => (
@@ -142,24 +142,23 @@ export default function EtiquetteCourrierPage() {
           flex: 1,
           minWidth: 0,
           height: '100%',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'flex-start',
+          display: 'grid',
+          gridTemplateRows: '1.05fr 0.9fr 1.2fr 0.7fr 0.12fr 1.5fr',
           alignItems: 'stretch',
-          padding: '0.9mm 0.85mm 0.72mm 1.05mm',
+          padding: '0.75mm 0.75mm 0.7mm 0.8mm',
           boxSizing: 'border-box',
-          gap: '0.32mm',
+          rowGap: '0.22mm',
         }}
       >
         {/* FPS / AR — mis en valeur */}
         <p style={{
           margin: 0,
-          fontSize: '7.2pt',
+          fontSize: '6.35pt',
           fontWeight: 900,
           lineHeight: 1,
-          letterSpacing: '0.04em',
+          letterSpacing: '0.02em',
           whiteSpace: 'nowrap',
-          textAlign: 'center',
+          textAlign: 'left',
         }}>
           FPS&nbsp;/&nbsp;{typeLabel}
         </p>
@@ -167,35 +166,36 @@ export default function EtiquetteCourrierPage() {
         {/* Numéro */}
         <p style={{
           margin: 0,
-          fontSize: '5.7pt',
+          fontSize: '5.8pt',
           fontWeight: 800,
           lineHeight: 1,
           whiteSpace: 'nowrap',
-          textAlign: 'center',
+          textAlign: 'left',
         }}>
           N°{numeroLabel}
         </p>
 
         {/* Date structurée */}
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.14mm' }}>
-          <p style={{ margin: 0, fontSize: '3pt', fontWeight: 600, lineHeight: 1, color: '#555' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'stretch', justifyContent: 'center', gap: '0.12mm' }}>
+          <p style={{ margin: 0, fontSize: '2.75pt', fontWeight: 600, lineHeight: 1, color: '#555', textAlign: 'left' }}>
             Reçu le&nbsp;:
           </p>
           <p style={{
             margin: 0,
-            fontSize: '3.75pt',
+            fontSize: '4.35pt',
             fontWeight: 700,
             lineHeight: 1.05,
-            textAlign: 'center',
+            textAlign: 'left',
+            whiteSpace: 'nowrap',
           }}>
             {jourLabel} {moisLabel} {anneeLabel}
           </p>
           <p style={{
             margin: 0,
-            fontSize: '3.55pt',
+            fontSize: '4.2pt',
             fontWeight: 700,
             lineHeight: 1,
-            textAlign: 'center',
+            textAlign: 'left',
             whiteSpace: 'nowrap',
           }}>
             à {heureLabel}
@@ -205,10 +205,10 @@ export default function EtiquetteCourrierPage() {
         {/* Annexes */}
         <p style={{
           margin: 0,
-          fontSize: '3.7pt',
+          fontSize: '4.7pt',
           fontWeight: 700,
           lineHeight: 1,
-          textAlign: 'center',
+          textAlign: 'left',
           whiteSpace: 'nowrap',
         }}>
           Annexes&nbsp;: {annexesLabel}
@@ -221,11 +221,12 @@ export default function EtiquetteCourrierPage() {
         <div style={{ flex: 1, minHeight: 0, display: 'flex', alignItems: 'stretch' }}>
           <p style={{
             margin: 0,
-            fontSize: '2.8pt',
+            fontSize: '2.35pt',
             fontWeight: 600,
-            lineHeight: 1.15,
+            lineHeight: 1.14,
             textAlign: 'justify',
             textJustify: 'inter-word',
+            textAlignLast: 'justify',
             wordBreak: 'break-word',
             hyphens: 'auto',
             color: '#222',
@@ -249,7 +250,7 @@ export default function EtiquetteCourrierPage() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          padding: '0.55mm',
+          padding: '0.35mm',
         }}
       >
         {qrDataUrl ? (
