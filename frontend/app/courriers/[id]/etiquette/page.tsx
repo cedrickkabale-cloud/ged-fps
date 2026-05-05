@@ -162,7 +162,7 @@ export default function EtiquetteCourrierPage() {
         {/* FPS / AR — mis en valeur */}
         <p style={{
           margin: 0,
-          fontSize: '8.4pt',
+          fontSize: '9.1pt',
           fontWeight: 900,
           lineHeight: 1,
           letterSpacing: '0.02em',
