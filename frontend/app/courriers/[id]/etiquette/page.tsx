@@ -106,7 +106,6 @@ export default function EtiquetteCourrierPage() {
   const isThermal = printProfile === 'thermal';
   const isExtreme = printProfile === 'extreme';
   const borderMain = isExtreme ? '0.44mm solid #000' : isThermal ? '0.38mm solid #000' : '0.3mm solid #000';
-  const numberBorder = isExtreme ? '0.28mm solid #000' : isThermal ? '0.24mm solid #000' : '0.2mm solid #000';
   const rightColumnWidth = isExtreme ? '17.1mm' : isThermal ? '16.8mm' : '16.4mm';
   const qrSize = isExtreme ? '15.2mm' : isThermal ? '14.9mm' : '14.5mm';
   const outerHorizontalInset = isExtreme ? '0.62mm' : isThermal ? '0.56mm' : '0.5mm';
@@ -255,10 +254,6 @@ export default function EtiquetteCourrierPage() {
           gap: '0.15mm',
         }}
       >
-        <p style={{ margin: 0, fontSize: '3.1pt', fontWeight: isExtreme ? 900 : isThermal ? 800 : 700, textAlign: 'center', lineHeight: 1 }}>
-          Scan QR
-        </p>
-
         {qrDataUrl ? (
           <img
             src={qrDataUrl}
