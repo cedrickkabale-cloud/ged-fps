@@ -227,7 +227,7 @@ export default function EtiquetteCourrierPage() {
         <div style={{ flex: 1, minHeight: 0, display: 'flex', alignItems: 'flex-start' }}>
           <p style={{
             margin: '0.05mm 0 0 0',
-            fontSize: '3.45pt',
+            fontSize: '3.85pt',
             fontWeight: 800,
             lineHeight: 1.2,
             textAlign: 'justify',
