@@ -172,20 +172,18 @@ export default function EtiquetteCourrierPage() {
           </p>
         </div>
 
-        {/* Zone 2 – N° (flex 1.2, encadré) */}
+        {/* Zone 2 – Numéro (flex 1.2) */}
         <div style={{ flex: 1.2, display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', paddingLeft: centerShiftToQr }}>
-          <div style={{ border: numberBorder, padding: '0.14mm 0.3mm', width: '100%' }}>
-            <p style={{
-              margin: 0,
-              fontSize: '5.6pt',
-              fontWeight: isExtreme ? 960 : isThermal ? 920 : 860,
-              lineHeight: 1,
-              wordBreak: 'break-all',
-              textAlign: 'center',
-            }}>
-              {numeroLabel}
-            </p>
-          </div>
+          <p style={{
+            margin: 0,
+            fontSize: '5.6pt',
+            fontWeight: isExtreme ? 960 : isThermal ? 920 : 860,
+            lineHeight: 1,
+            wordBreak: 'break-all',
+            textAlign: 'center',
+          }}>
+            N°{numeroLabel}
+          </p>
         </div>
 
         {/* Zone 3 – Date & heure (flex 1) */}
@@ -283,9 +281,7 @@ export default function EtiquetteCourrierPage() {
           </div>
         )}
 
-        <p style={{ margin: 0, fontSize: '2.75pt', fontWeight: isExtreme ? 900 : isThermal ? 800 : 700, textAlign: 'center', lineHeight: 1 }}>
-          Réf: {numeroLabel}
-        </p>
+
       </div>
     </div>
   );
