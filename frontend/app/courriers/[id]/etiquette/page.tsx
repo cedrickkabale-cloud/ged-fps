@@ -97,6 +97,9 @@ export default function EtiquetteCourrierPage() {
   const typeLabel = 'AR';
   const rawNumero = courrier.numero || courrier.reference || `#${courrier.id}`;
   const numeroLabel = rawNumero.replace(/^NO-/i, '');
+  const jourSemaineLabel = courrier.date_reception
+    ? format(new Date(courrier.date_reception), 'EEEE', { locale: fr })
+    : '—';
   const jourLabel = courrier.date_reception
     ? format(new Date(courrier.date_reception), 'dd', { locale: fr })
     : '—';
@@ -114,8 +117,8 @@ export default function EtiquetteCourrierPage() {
   const isExtreme = printProfile === 'extreme';
   const borderMain = '0.4mm solid #000';
   const dividerBorder = '0.3mm solid #000';
-  const rightColW = '19.4mm';
-  const qrSize = '18.3mm';
+  const rightColW = '18.8mm';
+  const qrSize = '17.9mm';
 
   // ── Étiquette partagée écran/impression ──────────────────────
   const LabelContent = () => (
@@ -142,13 +145,12 @@ export default function EtiquetteCourrierPage() {
           flex: 1,
           minWidth: 0,
           height: '100%',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'flex-start',
+          display: 'grid',
+          gridTemplateRows: 'auto auto auto auto 0.2mm 1fr',
           alignItems: 'stretch',
           padding: '0.72mm 0.82mm 0.68mm 0.92mm',
           boxSizing: 'border-box',
-          gap: '0.24mm',
+          rowGap: '0.2mm',
         }}
       >
         {/* FPS / AR — mis en valeur */}
@@ -189,7 +191,7 @@ export default function EtiquetteCourrierPage() {
             textAlign: 'left',
             whiteSpace: 'nowrap',
           }}>
-            {jourLabel} {moisLabel} {anneeLabel}
+            {jourSemaineLabel} {jourLabel} {moisLabel} {anneeLabel}
           </p>
           <p style={{
             margin: 0,
@@ -225,7 +227,9 @@ export default function EtiquetteCourrierPage() {
             fontSize: '3.05pt',
             fontWeight: 700,
             lineHeight: 1.18,
-            textAlign: 'left',
+            textAlign: 'justify',
+            textJustify: 'inter-word',
+            textAlignLast: 'left',
             wordBreak: 'break-word',
             hyphens: 'auto',
             color: '#222',
@@ -249,7 +253,7 @@ export default function EtiquetteCourrierPage() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          padding: '0.5mm',
+          padding: '0.35mm',
         }}
       >
         {qrDataUrl ? (
