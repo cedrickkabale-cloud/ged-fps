@@ -106,17 +106,12 @@ export default function EtiquetteCourrierPage() {
   const annexesLabel = typeof courrier.nombre_annexes === 'number' ? courrier.nombre_annexes : 0;
   const isThermal = printProfile === 'thermal';
   const isExtreme = printProfile === 'extreme';
-  const borderMain = isExtreme ? '0.44mm solid #000' : isThermal ? '0.38mm solid #000' : '0.3mm solid #000';
-  const rightColumnWidth = isExtreme ? '17.1mm' : isThermal ? '16.8mm' : '16.4mm';
-  const qrSize = isExtreme ? '15.2mm' : isThermal ? '14.9mm' : '14.5mm';
-  const outerHorizontalInset = isExtreme ? '0.62mm' : isThermal ? '0.56mm' : '0.5mm';
-  const leftSafeInset = isExtreme ? '1.02mm' : isThermal ? '0.92mm' : '0.82mm';
-  const centerShiftToQr = isExtreme ? '0.28mm' : isThermal ? '0.22mm' : '0.18mm';
-  const verticalSafeInset = isExtreme ? '0.95mm' : isThermal ? '0.85mm' : '0.75mm';
-  const contentHeight = isExtreme ? '22.7mm' : isThermal ? '22.9mm' : '23.1mm';
-  const topTitleInset = isExtreme ? '0.55mm' : isThermal ? '0.48mm' : '0.4mm';
-  const qrInnerLeftInset = isExtreme ? '0.08mm' : isThermal ? '0.06mm' : '0.05mm';
-  const qrInnerRightInset = isExtreme ? '0.45mm' : isThermal ? '0.38mm' : '0.32mm';
+  const borderMain = '0.4mm solid #000';
+  const dividerBorder = '0.3mm solid #000';
+  const rightColW = '19mm';
+  const qrSize = '18mm';
+  const vPad = '0.8mm';
+  const lPad = '1mm';
 
   // ── Étiquette partagée écran/impression ──────────────────────
   // Unité de base : 1u = 1mm en impression. Pour l'aperçu on scale 4x via transform.
@@ -134,125 +129,100 @@ export default function EtiquetteCourrierPage() {
         boxSizing: 'border-box',
         overflow: 'hidden',
         border: borderMain,
-        paddingLeft: outerHorizontalInset,
-        paddingRight: outerHorizontalInset,
-        paddingTop: verticalSafeInset,
-        paddingBottom: verticalSafeInset,
+        padding: 0,
         gap: 0,
       }}
     >
-      {/* ── Colonne gauche : zones proportionnelles ────────── */}
-      {/* Chaque bloc occupe une tranche verticale fixe via flex,
-          centré dans sa zone → aucun blanc groupé, rendu régulier */}
+      {/* ── Colonne gauche ───────────────────────────────── */}
       <div
         style={{
-          flex: '0 0 auto',
-          width: `calc(100% - ${rightColumnWidth})`,
-          height: contentHeight,
+          flex: 1,
+          minWidth: 0,
+          height: '100%',
           display: 'flex',
           flexDirection: 'column',
-          overflow: 'hidden',
-          minWidth: 0,
-          paddingLeft: leftSafeInset,
-          paddingRight: '0.04mm',
+          justifyContent: 'space-evenly',
+          alignItems: 'center',
+          padding: `${vPad} 0 ${vPad} ${lPad}`,
+          boxSizing: 'border-box',
         }}
       >
-        {/* Zone 1 – Titre FPS/AR (flex 1) */}
-        <div style={{ flex: 1, display: 'flex', alignItems: 'flex-end', justifyContent: 'center', overflow: 'hidden', paddingTop: topTitleInset, paddingLeft: centerShiftToQr }}>
-          <p style={{
-            margin: 0,
-            fontSize: '6.4pt',
-            fontWeight: isExtreme ? 990 : isThermal ? 960 : 900,
-            lineHeight: 1,
-            letterSpacing: '0.04em',
-            whiteSpace: 'nowrap',
-            textAlign: 'center',
-          }}>
-            FPS&nbsp;/&nbsp;{typeLabel}
-          </p>
-        </div>
-
-        {/* Zone 2 – Numéro (flex 1.2) */}
-        <div style={{ flex: 1.2, display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', paddingLeft: centerShiftToQr }}>
-          <p style={{
-            margin: 0,
-            fontSize: '5.6pt',
-            fontWeight: isExtreme ? 960 : isThermal ? 920 : 860,
-            lineHeight: 1,
-            wordBreak: 'break-all',
-            textAlign: 'center',
-          }}>
-            N°{numeroLabel}
-          </p>
-        </div>
-
-        {/* Zone 3 – Date & heure (flex 1) */}
-        <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', paddingLeft: centerShiftToQr }}>
-          <p style={{
-            margin: 0,
-            fontSize: '4.7pt',
-            fontWeight: isExtreme ? 860 : isThermal ? 780 : 700,
-            lineHeight: 1,
-            textAlign: 'center',
-            whiteSpace: 'nowrap',
-          }}>
-            Reçu le {dateLabel} à {heureLabel}
-          </p>
-        </div>
-
-        {/* Zone 3b – Nombre d'annexes (flex 0.8) */}
-        <div style={{ flex: 0.8, display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', paddingLeft: centerShiftToQr }}>
-          <p style={{
-            margin: 0,
-            fontSize: '4.6pt',
-            fontWeight: isExtreme ? 900 : isThermal ? 820 : 740,
-            lineHeight: 1,
-            textAlign: 'center',
-            whiteSpace: 'nowrap',
-          }}>
-            Annexes : {annexesLabel}
-          </p>
-        </div>
-
-        {/* Zone 4 – Slogan (flex 1.4) */}
-        <div style={{
-          flex: 1.4,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          overflow: 'hidden',
-          paddingLeft: centerShiftToQr,
+        {/* FPS / AR */}
+        <p style={{
+          margin: 0,
+          fontSize: '7pt',
+          fontWeight: 900,
+          lineHeight: 1,
+          letterSpacing: '0.05em',
+          whiteSpace: 'nowrap',
+          textAlign: 'center',
         }}>
-          <p style={{
-            margin: 0,
-            fontSize: '3.4pt',
-            fontWeight: isExtreme ? 900 : isThermal ? 820 : 720,
-            lineHeight: 1.08,
-            textAlign: 'center',
-            wordBreak: 'break-word',
-            hyphens: 'auto',
-          }}>
-            {SLOGAN}
-          </p>
-        </div>
+          FPS&nbsp;/&nbsp;{typeLabel}
+        </p>
 
+        {/* Numéro */}
+        <p style={{
+          margin: 0,
+          fontSize: '6.5pt',
+          fontWeight: 900,
+          lineHeight: 1,
+          whiteSpace: 'nowrap',
+          textAlign: 'center',
+        }}>
+          N°{numeroLabel}
+        </p>
 
+        {/* Date & heure */}
+        <p style={{
+          margin: 0,
+          fontSize: '4.8pt',
+          fontWeight: 700,
+          lineHeight: 1,
+          textAlign: 'center',
+          whiteSpace: 'nowrap',
+        }}>
+          Reçu le {dateLabel} à {heureLabel}
+        </p>
+
+        {/* Annexes */}
+        <p style={{
+          margin: 0,
+          fontSize: '4.6pt',
+          fontWeight: 700,
+          lineHeight: 1,
+          textAlign: 'center',
+          whiteSpace: 'nowrap',
+        }}>
+          Annexes&nbsp;: {annexesLabel}
+        </p>
+
+        {/* Slogan */}
+        <p style={{
+          margin: 0,
+          fontSize: '3.2pt',
+          fontWeight: 600,
+          lineHeight: 1.1,
+          textAlign: 'center',
+          wordBreak: 'break-word',
+        }}>
+          {SLOGAN}
+        </p>
       </div>
 
-      {/* ── Colonne droite : QR Code ───────────────────────── */}
+      {/* ── Séparateur vertical ──────────────────────────── */}
+      <div style={{ width: dividerBorder, background: '#000', alignSelf: 'stretch', flexShrink: 0 }} />
+
+      {/* ── Colonne droite : QR Code plein format ─────────── */}
       <div
         style={{
-          width: rightColumnWidth,
-          height: contentHeight,
+          width: rightColW,
           flexShrink: 0,
+          height: '100%',
           boxSizing: 'border-box',
           display: 'flex',
-          flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          paddingLeft: qrInnerLeftInset,
-          paddingRight: qrInnerRightInset,
-          gap: '0.15mm',
+          padding: '0.4mm',
         }}
       >
         {qrDataUrl ? (
@@ -263,21 +233,10 @@ export default function EtiquetteCourrierPage() {
             style={{ width: qrSize, height: qrSize, display: 'block', imageRendering: 'pixelated' }}
           />
         ) : (
-          <div
-            style={{
-              width: qrSize,
-              height: qrSize,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              border: '0.3mm solid #ccc',
-            }}
-          >
+          <div style={{ width: qrSize, height: qrSize, display: 'flex', alignItems: 'center', justifyContent: 'center', border: '0.3mm solid #ccc' }}>
             <span style={{ fontSize: '3pt', color: '#999' }}>QR…</span>
           </div>
         )}
-
-
       </div>
     </div>
   );
@@ -348,12 +307,6 @@ export default function EtiquetteCourrierPage() {
           .label-print .label-qr-img {
             width: ${qrSize} !important;
             height: ${qrSize} !important;
-          }
-
-          .label-print img[alt="Logo FPS"] {
-            width: 8.2mm !important;
-            height: 8.2mm !important;
-            overflow: visible !important;
           }
 
           .label-print.label-print-thermal {
