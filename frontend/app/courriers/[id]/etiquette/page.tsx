@@ -147,7 +147,7 @@ export default function EtiquetteCourrierPage() {
         {/* FPS / AR — mis en valeur */}
         <p style={{
           margin: 0,
-          fontSize: '9.1pt',
+          fontSize: '10.5pt',
           fontWeight: 900,
           lineHeight: 1,
           letterSpacing: '0.02em',
@@ -160,7 +160,7 @@ export default function EtiquetteCourrierPage() {
         {/* Numéro */}
         <p style={{
           margin: '0.12mm 0 0 0',
-          fontSize: '7.2pt',
+          fontSize: '8.4pt',
           fontWeight: 800,
           lineHeight: 1,
           whiteSpace: 'nowrap',
@@ -172,7 +172,7 @@ export default function EtiquetteCourrierPage() {
         {/* Ligne 3 : Réception (jour + date) */}
         <p style={{
           margin: '0.1mm 0 0 0',
-          fontSize: '5.2pt',
+          fontSize: '6.2pt',
           fontWeight: 700,
           lineHeight: 1,
           textAlign: 'left',
@@ -184,7 +184,7 @@ export default function EtiquetteCourrierPage() {
         {/* Ligne 4 : Heure */}
         <p style={{
           margin: '0.04mm 0 0 0',
-          fontSize: '5.4pt',
+          fontSize: '6.4pt',
           fontWeight: 700,
           lineHeight: 1,
           textAlign: 'left',
@@ -196,7 +196,7 @@ export default function EtiquetteCourrierPage() {
         {/* Annexes */}
         <p style={{
           margin: '0.08mm 0 0 0',
-          fontSize: '5.8pt',
+          fontSize: '6.8pt',
           fontWeight: 800,
           lineHeight: 1,
           textAlign: 'left',
