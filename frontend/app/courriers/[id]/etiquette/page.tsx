@@ -140,7 +140,7 @@ export default function EtiquetteCourrierPage() {
           display: 'grid',
           gridTemplateRows: 'auto auto auto auto auto 0.2mm 1fr',
           alignItems: 'stretch',
-          padding: '2mm 1.5mm 0.05mm 0.78mm',
+          padding: '1.5mm 1.5mm 0.1mm 0.78mm',
           boxSizing: 'border-box',
           rowGap: '0',
         }}
@@ -173,11 +173,11 @@ export default function EtiquetteCourrierPage() {
         {/* Ligne 3 : Réception (jour + date) */}
         <p style={{
           margin: '0.1mm 0 0 0',
-          fontSize: '6.8pt',
+          fontSize: '5.6pt',
           fontWeight: 700,
-          lineHeight: 1.1,
+          lineHeight: 1,
           textAlign: 'left',
-          whiteSpace: 'normal',
+          whiteSpace: 'nowrap',
           overflow: 'hidden',
         }}>
           {dateReceptionLabel}
@@ -214,9 +214,9 @@ export default function EtiquetteCourrierPage() {
         <div style={{ flex: 1, minHeight: 0, display: 'flex', alignItems: 'flex-start', overflow: 'hidden' }}>
           <p style={{
             margin: '0.2mm 0 0 0',
-            fontSize: '3.1pt',
+            fontSize: '3.7pt',
             fontWeight: 800,
-            lineHeight: 1.1,
+            lineHeight: 1.15,
             textAlign: 'justify',
             textAlignLast: 'justify',
             wordBreak: 'normal',
