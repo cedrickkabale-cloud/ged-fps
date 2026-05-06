@@ -96,7 +96,8 @@ export default function EtiquetteCourrierPage() {
   // Le format physique attendu est toujours FPS/AR
   const typeLabel = 'AR';
   const rawNumero = courrier.numero || courrier.reference || `#${courrier.id}`;
-  const numeroLabel = rawNumero.replace(/^NO-/i, '');
+  const yearSuffix = String(new Date().getFullYear()).slice(-2);
+  const numeroLabel = rawNumero.replace(/^NO-/i, '') + `/${yearSuffix}`;
   const dateReceptionLabel = courrier.date_reception
     ? `Reçu le ${format(new Date(courrier.date_reception), 'dd/MM/yyyy', { locale: fr })}`
     : 'Reçu —';
@@ -147,7 +148,7 @@ export default function EtiquetteCourrierPage() {
         {/* FPS / AR — mis en valeur */}
         <p style={{
           margin: 0,
-          fontSize: '10.5pt',
+          fontSize: '11.5pt',
           fontWeight: 900,
           lineHeight: 1,
           letterSpacing: '0.02em',
@@ -160,7 +161,7 @@ export default function EtiquetteCourrierPage() {
         {/* Numéro */}
         <p style={{
           margin: '0.12mm 0 0 0',
-          fontSize: '8.4pt',
+          fontSize: '9.2pt',
           fontWeight: 800,
           lineHeight: 1,
           whiteSpace: 'nowrap',
@@ -172,7 +173,7 @@ export default function EtiquetteCourrierPage() {
         {/* Ligne 3 : Réception (jour + date) */}
         <p style={{
           margin: '0.1mm 0 0 0',
-          fontSize: '6.2pt',
+          fontSize: '6.8pt',
           fontWeight: 700,
           lineHeight: 1,
           textAlign: 'left',
@@ -184,7 +185,7 @@ export default function EtiquetteCourrierPage() {
         {/* Ligne 4 : Heure */}
         <p style={{
           margin: '0.04mm 0 0 0',
-          fontSize: '6.4pt',
+          fontSize: '7pt',
           fontWeight: 700,
           lineHeight: 1,
           textAlign: 'left',
@@ -196,7 +197,7 @@ export default function EtiquetteCourrierPage() {
         {/* Annexes */}
         <p style={{
           margin: '0.08mm 0 0 0',
-          fontSize: '6.8pt',
+          fontSize: '7.4pt',
           fontWeight: 800,
           lineHeight: 1,
           textAlign: 'left',
