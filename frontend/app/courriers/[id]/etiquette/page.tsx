@@ -173,7 +173,7 @@ export default function EtiquetteCourrierPage() {
         {/* Ligne 3 : Réception (jour + date) */}
         <p style={{
           margin: '0.1mm 0 0 0',
-          fontSize: '5.6pt',
+          fontSize: '7pt',
           fontWeight: 700,
           lineHeight: 1,
           textAlign: 'left',
