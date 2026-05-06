@@ -99,7 +99,7 @@ export default function EtiquetteCourrierPage() {
   const yearSuffix = String(new Date().getFullYear()).slice(-2);
   const numeroLabel = rawNumero.replace(/^NO-/i, '') + `/${yearSuffix}`;
   const dateReceptionLabel = courrier.date_reception
-    ? `Date : ${format(new Date(courrier.date_reception), 'dd/MM/yyyy', { locale: fr })}`
+    ? `Date : ${format(new Date(courrier.date_reception), 'dd/MM/yy', { locale: fr })}`
     : 'Date : —';
   const heureLabel = courrier.created_at
     ? format(new Date(courrier.created_at), 'HH:mm', { locale: fr })
@@ -136,6 +136,7 @@ export default function EtiquetteCourrierPage() {
         style={{
           flex: 1,
           minWidth: 0,
+          overflow: 'hidden',
           height: '100%',
           display: 'grid',
           gridTemplateRows: 'auto auto auto auto auto 0.2mm 1fr',
