@@ -160,7 +160,7 @@ export default function EtiquetteCourrierPage() {
         {/* Numéro */}
         <p style={{
           margin: '0.12mm 0 0 0',
-          fontSize: '6.2pt',
+          fontSize: '7.2pt',
           fontWeight: 800,
           lineHeight: 1,
           whiteSpace: 'nowrap',
@@ -172,7 +172,7 @@ export default function EtiquetteCourrierPage() {
         {/* Ligne 3 : Réception (jour + date) */}
         <p style={{
           margin: '0.1mm 0 0 0',
-          fontSize: '4.5pt',
+          fontSize: '5.2pt',
           fontWeight: 700,
           lineHeight: 1,
           textAlign: 'left',
@@ -184,7 +184,7 @@ export default function EtiquetteCourrierPage() {
         {/* Ligne 4 : Heure */}
         <p style={{
           margin: '0.04mm 0 0 0',
-          fontSize: '4.7pt',
+          fontSize: '5.4pt',
           fontWeight: 700,
           lineHeight: 1,
           textAlign: 'left',
@@ -196,7 +196,7 @@ export default function EtiquetteCourrierPage() {
         {/* Annexes */}
         <p style={{
           margin: '0.08mm 0 0 0',
-          fontSize: '5pt',
+          fontSize: '5.8pt',
           fontWeight: 800,
           lineHeight: 1,
           textAlign: 'left',
