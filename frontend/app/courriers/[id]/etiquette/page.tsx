@@ -97,23 +97,8 @@ export default function EtiquetteCourrierPage() {
   const typeLabel = 'AR';
   const rawNumero = courrier.numero || courrier.reference || `#${courrier.id}`;
   const numeroLabel = rawNumero.replace(/^NO-/i, '');
-  const jourSemaineLabel = courrier.date_reception
-    ? format(new Date(courrier.date_reception), 'EEEE', { locale: fr })
-    : '—';
-  const jourSemaineCapLabel = jourSemaineLabel === '—'
-    ? '—'
-    : `${jourSemaineLabel.charAt(0).toUpperCase()}${jourSemaineLabel.slice(1)}`;
-  const jourLabel = courrier.date_reception
-    ? format(new Date(courrier.date_reception), 'dd', { locale: fr })
-    : '—';
-  const moisLabel = courrier.date_reception
-    ? format(new Date(courrier.date_reception), 'MMMM', { locale: fr })
-    : '—';
-  const anneeLabel = courrier.date_reception
-    ? format(new Date(courrier.date_reception), 'yyyy', { locale: fr })
-    : '—';
   const dateReceptionLabel = courrier.date_reception
-    ? `Reçu ${jourSemaineCapLabel}, le ${jourLabel} ${moisLabel} ${anneeLabel}`
+    ? `Reçu le ${format(new Date(courrier.date_reception), 'dd/MM/yyyy', { locale: fr })}`
     : 'Reçu —';
   const heureLabel = courrier.created_at
     ? format(new Date(courrier.created_at), 'HH:mm', { locale: fr })
@@ -154,7 +139,7 @@ export default function EtiquetteCourrierPage() {
           display: 'grid',
           gridTemplateRows: 'auto auto auto auto auto 0.2mm 1fr',
           alignItems: 'stretch',
-          padding: '2.95mm 0.72mm 0.05mm 0.78mm',
+          padding: '2.95mm 1.5mm 0.05mm 0.78mm',
           boxSizing: 'border-box',
           rowGap: '0',
         }}
@@ -186,8 +171,8 @@ export default function EtiquetteCourrierPage() {
 
         {/* Ligne 3 : Réception (jour + date) */}
         <p style={{
-          margin: '0.14mm 0 0 0',
-          fontSize: '3.7pt',
+          margin: '0.1mm 0 0 0',
+          fontSize: '4.5pt',
           fontWeight: 700,
           lineHeight: 1,
           textAlign: 'left',
@@ -198,8 +183,8 @@ export default function EtiquetteCourrierPage() {
 
         {/* Ligne 4 : Heure */}
         <p style={{
-          margin: '0.06mm 0 0 0',
-          fontSize: '3.9pt',
+          margin: '0.04mm 0 0 0',
+          fontSize: '4.7pt',
           fontWeight: 700,
           lineHeight: 1,
           textAlign: 'left',
@@ -210,8 +195,8 @@ export default function EtiquetteCourrierPage() {
 
         {/* Annexes */}
         <p style={{
-          margin: '0.1mm 0 0 0',
-          fontSize: '4.2pt',
+          margin: '0.08mm 0 0 0',
+          fontSize: '5pt',
           fontWeight: 800,
           lineHeight: 1,
           textAlign: 'left',
@@ -224,17 +209,16 @@ export default function EtiquetteCourrierPage() {
         <div style={{ height: '0.2mm', background: '#b8b8b8', width: '100%' }} />
 
         {/* Slogan — justifié */}
-        <div style={{ flex: 1, minHeight: 0, display: 'flex', alignItems: 'flex-start' }}>
+        <div style={{ flex: 1, minHeight: 0, display: 'flex', alignItems: 'flex-start', overflow: 'hidden' }}>
           <p style={{
-            margin: '0.05mm 0 0 0',
-            fontSize: '3.85pt',
-            fontWeight: 900,
-            lineHeight: 1.2,
-            textAlign: 'justify',
-            textJustify: 'inter-word',
-            textAlignLast: 'left',
-            wordBreak: 'break-word',
-            hyphens: 'auto',
+            margin: '0.2mm 0 0 0',
+            fontSize: '3.45pt',
+            fontWeight: 800,
+            lineHeight: 1.14,
+            textAlign: 'left',
+            wordBreak: 'normal',
+            overflowWrap: 'anywhere',
+            hyphens: 'none',
             color: '#222',
             width: '100%',
           }}>
@@ -256,7 +240,7 @@ export default function EtiquetteCourrierPage() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          padding: '0.3mm',
+          padding: '0.3mm 0.3mm 0.3mm 0.95mm',
         }}
       >
         {qrDataUrl ? (

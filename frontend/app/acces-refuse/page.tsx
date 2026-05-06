@@ -93,6 +93,32 @@ const getSafeInternalPath = (path: string) => {
   return path;
 };
 
+const LABEL_ROUTE_MATCHERS: Array<{ pattern: RegExp; label: string }> = [
+  { pattern: /^\/courriers\/[^/]+$/, label: 'Détail du courrier' },
+  { pattern: /^\/courriers\/[^/]+\/etiquette$/, label: 'Impression d\'étiquette' },
+];
+
+const getPageLabel = (path: string) => {
+  if (!path) return '';
+  const staticLabel = PAGE_LABELS[path];
+  if (staticLabel) return staticLabel;
+
+  const routeMatch = LABEL_ROUTE_MATCHERS.find(({ pattern }) => pattern.test(path));
+  return routeMatch?.label || path;
+};
+
+const getReturnHref = (action: string, fromPath: string) => {
+  if (action === 'print_label') {
+    const labelPageMatch = fromPath.match(/^\/courriers\/([^/]+)\/etiquette$/);
+    if (labelPageMatch) {
+      const id = labelPageMatch[1];
+      return `/courriers/${id}`;
+    }
+  }
+
+  return fromPath || ACTION_FALLBACK_PATHS[action] || '/dashboard';
+};
+
 export default function AccesRefusePage() {
   const { user, isLoading } = useAuth();
   const [action, setAction] = useState('');
@@ -111,7 +137,7 @@ export default function AccesRefusePage() {
   const safeOriginPath = useMemo(() => getSafeInternalPath(fromPath), [fromPath]);
 
   const fromLabel = useMemo(() => {
-    return PAGE_LABELS[safeOriginPath] || safeOriginPath || 'la page demandée';
+    return getPageLabel(safeOriginPath) || 'la page demandée';
   }, [safeOriginPath]);
 
   const normalizedRole = useMemo(
@@ -129,11 +155,11 @@ export default function AccesRefusePage() {
   }, [action]);
 
   const returnHref = useMemo(() => {
-    return safeOriginPath || ACTION_FALLBACK_PATHS[action] || '/dashboard';
+    return getReturnHref(action, safeOriginPath);
   }, [action, safeOriginPath]);
 
   const returnLabel = useMemo(() => {
-    const targetLabel = PAGE_LABELS[returnHref] || 'la page précédente';
+    const targetLabel = getPageLabel(returnHref) || 'la page précédente';
     return `Retour vers ${targetLabel}`;
   }, [returnHref]);
 

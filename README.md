@@ -181,6 +181,35 @@ RECU → ENTREE_DG → SORTIE_DG → ENTREE_DGA → SORTIE_DGA
 
 ---
 
+## Test rapide 30s - Flux `print_label`
+
+Objectif : verifier qu'un utilisateur non autorise redirige vers Acces refuse, puis que le bouton Retour ramene vers la fiche courrier (sans boucle vers etiquette).
+
+Prerequis :
+
+- Avoir un courrier existant (exemple : ID 1)
+- Etre connecte avec un role qui ne peut pas imprimer l'etiquette (exemple : DIRECTEUR)
+
+Verification locale (30 secondes) :
+
+1. Ouvrir directement l'URL : `/acces-refuse?action=print_label&from=%2Fcourriers%2F1%2Fetiquette`
+2. Verifier que la page affiche "Action non autorisee"
+3. Cliquer sur "Retour"
+4. Resultat attendu : navigation vers `/courriers/1` (et jamais retour vers `/courriers/1/etiquette`)
+
+Verification production Vercel (30 secondes) :
+
+1. Ouvrir la meme URL sur le domaine de production
+2. Refaire les memes etapes
+3. Resultat attendu identique : bouton Retour -> `/courriers/1`
+
+Critere de succes :
+
+- Aucun effet de boucle entre Acces refuse et Etiquette
+- Le flux est identique en local et sur Vercel
+
+---
+
 ## Convention ESLint d'equipe
 
 Pour verrouiller une qualite de code durable, le projet applique ces 3 regles communes (frontend + backend):
