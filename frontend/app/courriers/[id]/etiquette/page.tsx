@@ -109,8 +109,8 @@ export default function EtiquetteCourrierPage() {
   const isExtreme = printProfile === 'extreme';
   const borderMain = '0.4mm solid #000';
   const dividerBorder = '0.3mm solid #000';
-  const rightColW = '18mm';
-  const qrSize = '17.2mm';
+  const rightColW = '20mm';
+  const qrSize = '19mm';
 
   // ── Étiquette partagée écran/impression ──────────────────────
   const LabelContent = () => (
